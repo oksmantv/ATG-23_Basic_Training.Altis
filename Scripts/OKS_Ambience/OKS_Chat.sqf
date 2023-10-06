@@ -1,4 +1,4 @@
-Params ["_Talker","_Channel","_Message"];
+Params ["_Talker","_Channel","_Message",["_Callsign","",[""]]];
 /* 
  Local Execution - Requires to be run on all Clients (Globally) to show everyone a message.
    
@@ -15,49 +15,104 @@ Params ["_Talker","_Channel","_Message"];
 
 if(!HasInterface) exitWith {false};
 
-_Channel = toLower _Channel;
 Private _Code = {};
-Private ["_Range"];
+Private ["_Range","_Color"];
 
-Switch (_Channel) do {
+Switch (toLower _Channel) do {
 
 	case "side":{
-		_Range = 1000;
+		_Range = 5000;
 		_Code = {
-					Params ["_Talker","_Message","_Range"];
-					if(typeName _Talker != "STRING") then {
-						if(player distance _talker < _Range) then {
-							_talker setRandomLip true;
-							_Talker sideChat _Message
-						}
-					} else {
-						[side player,_Talker] sideChat _Message
-					}
-				};
+			Params ["_Talker","_Message","_Range","_Callsign"];
+			if(typeName _Talker != "STRING") then {
+				if(player distance _talker < _Range) then {
+					_talker setRandomLip true;
+					if(!isNil "_Callsign" && _Callsign != "") then {
+						_Talker setGroupId [_Callsign];
+						(Group _Talker) setGroupId [_Callsign];
+					};
+					_Talker sideChat _Message;
+				}
+			} else {
+				[side player,_Talker] sideChat _Message
+			}
+		};	
 	};
+
 	case "local":{
 		_Range = 20;
 		_Code = {
-					Params ["_Talker","_Message","_Range"];
-					_Message = format ["%1: %2",[_Talker] call BIS_fnc_getName,_Message];
-					if(player distance _talker < _Range) then {
-						_talker setRandomLip true; SystemChat _Message
-					}
-				};
+			Params ["_Talker","_Message","_Range"];
+			_Message = format ["%1: %2",[_Talker] call BIS_fnc_getName,_Message];
+			if(player distance _talker < _Range) then {
+				_talker setRandomLip true; SystemChat _Message
+			}
+		};
 	};
+
 	default {
-		_Range = 1000;
+		_Range = 5000;
 		_Code = {
-					Params ["_Talker","_Message","_Range"];
-					if(typeName _Talker != "STRING") then {
-						if(player distance _talker < _Range) then {
-							_talker setRandomLip true;
-							_Talker sideChat _Message
-						}
-					} else {
-						 [side player,_Talker] sideChat _Message
-					 }
-				};
+			Params ["_Talker","_Message","_Range","_Callsign"];
+			if(typeName _Talker != "STRING") then {
+				if(player distance _talker < _Range) then {
+					_talker setRandomLip true;
+					if(!isNil "_Callsign" && _Callsign != "") then {
+						_Talker setGroupId [_Callsign];
+						(Group _Talker) setGroupId [_Callsign];
+					};
+					_Talker sideChat _Message;
+				}
+			} else {
+				[side player,_Talker] sideChat _Message
+			}
+		};
 	}
 };
-[_Talker,_Message,_Range] spawn _Code;
+
+[_Talker,_Message,_Range,_Callsign] spawn _Code;
+switch (side player) do {
+	case west: { _Color = "0D64EC"};
+	case east: { _Color = "AD2707" };
+	case independent: { _Color = "06B42E"};
+	default { _Color = "0D64EC" };
+};
+
+Private _Id = "";
+switch (typeName _Talker) do {
+	case "STRING": {
+		switch(toLower _Talker) do {
+			case "hq": {
+				_Id = "Crossroad";
+			};
+			case "base": {
+				_Id = "HQ";
+			};	
+			case "papa_bear": {
+				_Id = "HQ";
+			};		
+			case "AirBase": {
+				_Id = "HQ";
+			};				
+			case "BLU": {
+				_Id = "HQ";
+			};	
+			case "OPF": {
+				_Id = "HQ";
+			};		
+			case "IND": {
+				_Id = "HQ";
+			};	
+			case "IND_G": {
+				_Id = "HQ";
+			};	
+			default {
+				_Id = "HQ"
+			}						
+		};		
+	};
+	default{
+		_Id = groupId (Group _Talker)
+	}
+};
+player createDiaryRecord ["Diary", ["Radio Messages", format["<br/>From: <font color='#%3' size='14'>%1</font><br/>Message: %2<br/>============",_Id,_Message,_Color]]];

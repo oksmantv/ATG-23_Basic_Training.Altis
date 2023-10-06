@@ -1,12 +1,12 @@
-_useMineDetector = true;
+_useMineDetector = false;
 _allowedNightStuff = true;
 
 _insignia = "";
-_goggles = ["G_Balaclava_TI_G_blk_F","G_Balaclava_TI_blk_F","rhsusf_shemagh2_gogg_od","rhsusf_shemagh_gogg_od","rhsusf_shemagh_od","rhsusf_shemagh2_od"];
+_goggles = ["G_Balaclava_TI_G_blk_F","G_Balaclava_TI_blk_F"];
 _helmet = ["H_HelmetB_TI_arid_F"];
 _OfficerHelmet = "UK3CB_ANA_B_H_Beret_MAR";
-_uniform = ["U_B_CTRG_Soldier_3_Arid_F","U_B_CTRG_Soldier_Arid_F","U_B_CTRG_Soldier_2_Arid_F","U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3"];
-_vest = ["V_PlateCarrierH_CTRG","V_PlateCarrierL_CTRG"];
+_uniform = ["U_B_CTRG_Soldier_3_Arid_F","U_B_CTRG_Soldier_Arid_F","U_B_CTRG_Soldier_2_Arid_F"];
+_vest = "V_PlateCarrierH_CTRG";
 _backpack = "B_Kitbag_cbr";
 if (GVARMAIN(mod_TFAR)) then {
 	_backpackRadio = "tfw_ilbe_blade_coy";
@@ -46,15 +46,15 @@ if (_role isEqualTo "jetp") then {
 	_backpack = "B_Parachute";
 };
 
-_silencer = "";
+_silencer = "hlc_muzzle_fsc30";
 _pointer = "uk3cb_baf_llm_ir_black";
 _sight = "optic_erco_blk_f";
 _bipod = "hlc_grip_pmvfg_black";
 
-_rifle = [["hlc_rifle_ACR_SBR_black","hlc_rifle_ACR_Full_black","hlc_rifle_ACR_carb_black","hlc_rifle_ACR_MID_black"], _silencer, _pointer, _sight, _bipod];
+_rifle = [["hlc_rifle_ACR_SBR_black","hlc_rifle_ACR_carb_black","hlc_rifle_ACR_GL_mid_black","hlc_rifle_ACR_MID_black"], _silencer, _pointer, _sight, _bipod];
 _rifleC = ["hlc_rifle_ACR_SBR_black", _silencer, _pointer, _sight, _bipod];
-_rifleGL = [["hlc_rifle_ACR_GL_SBR_black","hlc_rifle_ACR_GL_mid_black"], _silencer, _pointer, _sight, _bipod];
-_rifleL = ["hlc_rifle_ACR_Full_black", _silencer, _pointer, _sight, _bipod];
+_rifleGL = [["hlc_rifle_ACR_GL_SBR_black","hlc_rifle_ACR_GL_Carb_black","hlc_rifle_ACR_GL_mid_black"], _silencer, _pointer, _sight, _bipod];
+_rifleL = ["hlc_rifle_ACR_Full_black", _silencer, _pointer, _sight, "rhsusf_acc_harris_bipod"];
 _rifle_mag = "ACE_30Rnd_556x45_Stanag_Mk262_mag";
 _rifle_mag_tr = "30Rnd_556x45_Stanag_Tracer_Red";
 _rifleGL_mag = "ACE_30Rnd_556x45_Stanag_Mk262_mag";

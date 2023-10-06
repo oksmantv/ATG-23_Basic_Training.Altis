@@ -1,10 +1,14 @@
 /* Gear Settings */
 GOL_MAGNIFIED_OPTICS = 1;
-GOL_OPTICS = 1;
+GOL_OPTICS = 0;
 GOL_WEAPONS = 1;
 GOL_ARSENAL_ALLOWED = 1;
 GOL_ENTRENCH = 0;
 GOL_OKS_SecondPrimaryWeapon = 0;
+GOL_PACKED_HMG = "RHS_M2StaticMG_USMC_D";
+GOL_PACKED_MORTAR = "B_G_Mortar_01_F";
+GOL_PACKED_AT = "RHS_TOW_TriPod_USMC_D";
+GOL_PACKED_GMG = "RHS_MK19_TriPod_USMC_WD";
 
 /* AI Gear Settings */
 // 0 = 0%, 1 = 100%
@@ -14,7 +18,7 @@ GOL_UGL_Chance = 0.5;
 
 /* AI Static Settings */
 // 0 = 0%, 1 = 100%
-GOL_Static_Enable_Chance = 0.25;
+GOL_Static_Enable_Chance = 0.4;
 GOL_Static_Enable_Refresh = 45;
 
 /* AI Vehicle Settings */
@@ -42,7 +46,7 @@ Requires init.sqf line 28 to be commented out and replaced with line 29.
 _condition = {true} is the correct one to use for that. */
 
 /* AI Settings & Scripts*/
-GOL_NEKY_SHARE = 1;
+GOL_NEKY_SHARE = 0;
 GOL_OKS_SPAWN = 1;
 GOL_OKS_AMBIENCE = 1;
 GOL_OKS_HUNT = 0;
@@ -61,7 +65,7 @@ publicVariable "NEKY_Hunt_CurrentCount";
 /* Optional Settings */
 GOL_AAC_SETUP = 1; // Adds ability for pilots to switch seats more freely
 GOL_AAC_DoorGunReplacement = false; // Changes miniguns to Yak-9s for better accuracy of tracers. Causes hearing damage so needs to be fired at a slower rate.
-GOL_OKS_TASK = 0;
+GOL_OKS_TASK = 1;
 GOL_OKS_TANKER = 0;
 GOL_NEKY_TASK = 0;
 GOL_OKS_SCRAMBLER = 0;
@@ -77,34 +81,32 @@ GOL_NEKY_SUPPLY_HELICOPTER = "";
 
 if(!isNil "Vehicle_1") then {
 	GOL_NEKY_VEHICLEDROP_VEHICLECLASS = (typeOf Vehicle_1); // Classname
+	GOL_NEKY_VEHICLEDROP_APPEARANCE = compile ([Vehicle_1,""] call BIS_fnc_exportVehicle);
 	GOL_NEKY_VEHICLEDROP_CODE = {
-		
-		// Use the Vehicle Appearance Editor, make your changes then export and paste below and reformat to match the code below.	
-		// [
-		// 	_Vehicle,
-		// 	["Indep_01",1], 
-		// 	["showBags",1,"showBags2",1,"showCamonetHull",0,"showCamonetTurret",0,"showTools",1,"showSLATHull",1,"showSLATTurret",1]
-		// ] call BIS_fnc_initVehicle;
-		
+
+		Params ["_Vehicle"];
+		_Vehicle call GOL_NEKY_VEHICLEDROP_APPEARANCE;
+
 		sleep 5;
 		[_Vehicle] execVM "Scripts\OKS_Vehicles\OKS_Mechanized.sqf";	
+
+
 	};
 };
 if(!isNil "MHQ_1") then {
 	GOL_NEKY_MHQDROP_VEHICLECLASS = (typeOf MHQ_1); // Classname
+	GOL_NEKY_MHQDROP_APPEARANCE = compile ([MHQ_1,""] call BIS_fnc_exportVehicle);
 	GOL_NEKY_MHQDROP_CODE = {
 
-		// Use the Vehicle Appearance Editor, make your changes then export and paste below and reformat to match the code below.	
-		// [
-		// 	_Vehicle,
-		// 	["Indep_01",1], 
-		// 	["showBags",1,"showBags2",1,"showCamonetHull",0,"showCamonetTurret",0,"showTools",1,"showSLATHull",1,"showSLATTurret",1]
-		// ] call BIS_fnc_initVehicle;
+		Params ["_Vehicle"];
+		_Vehicle call GOL_NEKY_MHQDROP_APPEARANCE;
 
-		sleep 5;
-		[_Vehicle] execVM "Scripts\OKS_Vehicles\OKS_Mechanized.sqf";
 		[_Vehicle, "medium"] call GW_MHQ_Fnc_Handler;
 		[_Vehicle,25,true] ExecVM "Scripts\NEKY_ServiceStation\MobileSS.sqf";
+
+		sleep 5;	
+		[_Vehicle] execVM "Scripts\OKS_Vehicles\OKS_Mechanized.sqf";	
+
 	};
 };
 

@@ -41,3 +41,5 @@ c_2 AddAction ["<t color='#FF0000'>Garrison Building</t>",{
 [[],{ [round(4+(random 3)),HOUSE_2,independent,flag_2,false] spawn CQB_Garrison}] remoteExec ["BIS_FNC_SPAWN",2];},[],1,true,true,"","_target distance _this < 2"];
 c_1 AddAction ["<t color='#FF0000'>Garrison Building</t>",{
 [[],{ [(3+(random 2)),HOUSE_1,independent,flag_1,false] spawn CQB_Garrison}] remoteExec ["BIS_FNC_SPAWN",2];},[],1,true,true,"","_target distance _this < 2"];
+
+UrbanMovement_1 AddAction ["<t color='#FF0000'>Start Course</t>",{[5] remoteExec ["GW_Fnc_spawnList",2]},[],1,true,true,"","_target distance _this < 2"];

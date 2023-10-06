@@ -100,18 +100,3 @@ fnc_myFunction = {
 };
 };
 ["ace_treatmentStarted", fnc_myFunction] call CBA_fnc_addEventHandler;
-
-
-// 
-fnc_CPR = {
-    params ["_caller", "_target", "_selectionName", "_className", "_itemUser", "_usedItem"];
-    if(_className == "CPR") then {
-        //systemChat str "Something";
-        _cprCount = _target getVariable ["GOL_CPR_COMPLETED",0];
-        _cprCount = _cprCount + 1;
-        _cprCount = _target setVariable ["GOL_CPR_COMPLETED",_cprCount,true];
-
-        //systemChat str (_target getVariable ["GOL_CPR_COMPLETED",0]);
-    };
-};
-["ace_treatmentStarted", fnc_CPR] call CBA_fnc_addEventHandler;
