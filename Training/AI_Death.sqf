@@ -2,14 +2,17 @@
 
  Params ["_Unit"];
 
-sleep 2;
-For "_i" from 0 to 4 do {
+sleep 1;
+For "_i" from 0 to 2 do {
 	_Unit hideObject true; sleep 0.15; _Unit hideObject false; sleep 0.15;
 };
-For "_i" from 0 to 4 do {
+For "_i" from 0 to 2 do {
 	_Unit hideObject true; sleep 0.10; _Unit hideObject false; sleep 0.10;
 };
-For "_i" from 0 to 6 do {
+For "_i" from 0 to 3 do {
 	_Unit hideObject true; sleep 0.05; _Unit hideObject false; sleep 0.05;
 };
-deleteVehicle _Unit;
+_Unit hideObject true;
+if(_unit isKindOf "Man") then {
+	deleteVehicle _Unit;
+};

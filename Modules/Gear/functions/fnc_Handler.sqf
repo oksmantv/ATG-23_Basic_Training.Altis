@@ -318,6 +318,9 @@ if (_isMan) then {
 							};
 
 							_opticMag = (["",(configfile >> "CfgWeapons" >> (_compatibleItems select (_CV - 1)))] call ace_arsenal_fnc_statTextStatement_scopeMag);
+							if(count _opticMag > 5) then {
+								_opticMag = _opticMag select [5];
+							};
 							_opticMag = parseNumber _opticMag;
 
 								if(GOL_MAGNIFIED_OPTICS isEqualTo 0 || isNil "GOL_MAGNIFIED_OPTICS") then {
@@ -362,6 +365,28 @@ if (_isMan) then {
 						};																															
 					};
 
+					while {
+						_compatibleItems find "HLC_Charm_Herstal" != -1 ||
+						_compatibleItems find "HLC_Charm_Izhmash" != -1 ||
+						_compatibleItems find "HLC_Charm_Teethgang" != -1 ||
+						_compatibleItemsLMG find "HLC_Charm_Herstal" != -1 ||
+						_compatibleItemsLMG find "HLC_Charm_Izhmash" != -1 ||
+						_compatibleItemsLMG find "HLC_Charm_Teethgang" != -1 ||
+						_compatibleItemsGL find "HLC_Charm_Herstal" != -1 ||
+						_compatibleItemsGL find "HLC_Charm_Izhmash" != -1 ||
+						_compatibleItemsGL find "HLC_Charm_Teethgang" != -1
+					} do {			
+						_compatibleItems deleteAt (_compatibleItems find "HLC_Charm_Herstal");					
+						_compatibleItems deleteAt (_compatibleItems find "HLC_Charm_Izhmash");
+						_compatibleItemsLMG deleteAt (_compatibleItemsLMG find "HLC_Charm_Herstal");
+						_compatibleItems deleteAt (_compatibleItems find "HLC_Charm_Teethgang");
+						_compatibleItemsLMG deleteAt (_compatibleItemsLMG find "HLC_Charm_Izhmash");
+						_compatibleItemsLMG deleteAt (_compatibleItemsLMG find "HLC_Charm_Teethgang");
+						_compatibleItemsGL deleteAt (_compatibleItemsGL find "HLC_Charm_Herstal");
+						_compatibleItemsGL deleteAt (_compatibleItemsGL find "HLC_Charm_Izhmash");
+						_compatibleItemsGL deleteAt (_compatibleItemsGL find "HLC_Charm_Teethgang");					
+					};
+
 					_compatibleItems append _whiteList;
 					[_unit, _compatibleItems] call ace_arsenal_fnc_initBox;
 					[GOL_Arsenal_LMG, _compatibleItemsLMG] call ace_arsenal_fnc_initBox;
@@ -379,12 +404,12 @@ if (_isMan) then {
 			};
 
 			case "tiny_box": {		
-				[_unit, _glHE, 16] call _fnc_AddObjectsCargo;
+				[_unit, _glHEDP, 16] call _fnc_AddObjectsCargo;
 				[_unit, _glsmokeR, 8] call _fnc_AddObjectsCargo;
 				[_unit, _grenade, 8] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeY, 10] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeB, 4] call _fnc_AddObjectsCargo;
-				[_unit, _bandage, 15] call _fnc_AddObjectsCargo;
+				[_unit, _bandage, 20] call _fnc_AddObjectsCargo;
 				[_unit, _morph, 10] call _fnc_AddObjectsCargo;
 				if (GVARMAIN(mod_ACE3)) then {
 					[_unit, "ACE_salineIV", 5] call _fnc_AddObjectsCargo;
@@ -416,12 +441,12 @@ if (_isMan) then {
 			};
 
 			case "tiny_box_special": {
-				[_unit, _glHE, 16] call _fnc_AddObjectsCargo;
+				[_unit, _glHEDP, 16] call _fnc_AddObjectsCargo;
 				[_unit, _glsmokeR, 8] call _fnc_AddObjectsCargo;
 				[_unit, _grenade, 8] call _fnc_AddObjectsCargo;				
 				[_unit, _smokegrenadeY, 8] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeB, 6] call _fnc_AddObjectsCargo;
-				[_unit, _bandage, 15] call _fnc_AddObjectsCargo;
+				[_unit, _bandage, 20] call _fnc_AddObjectsCargo;
 				[_unit, _morph, 8] call _fnc_AddObjectsCargo;
 				if (GVARMAIN(mod_ACE3)) then {
 					[_unit, "ACE_salineIV", 4] call _fnc_AddObjectsCargo;
@@ -451,12 +476,13 @@ if (_isMan) then {
 			};
 
 			case "small_box": {
-				[_unit, _glHE, 24] call _fnc_AddObjectsCargo;
+				[_unit, _glHEDP, 24] call _fnc_AddObjectsCargo;
 				[_unit, _glsmokeR, 20] call _fnc_AddObjectsCargo;
 				[_unit, _grenade, 16] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeY, 15] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeB, 5] call _fnc_AddObjectsCargo;
-				[_unit, _bandage, 30] call _fnc_AddObjectsCargo;
+				[_unit, _bandage, 40] call _fnc_AddObjectsCargo;
+				[_unit, _morph, 15] call _fnc_AddObjectsCargo;
 				if (GVARMAIN(mod_ACE3)) then {
 					[_unit, "ACE_salineIV", 15] call _fnc_AddObjectsCargo;
 					[_unit, _flashBang, 10	] call _fnc_AddObjectsCargo;
@@ -506,7 +532,7 @@ if (_isMan) then {
 			};
 
 			case "big_box": {
-				[_unit, _glHE, 50] call _fnc_AddObjectsCargo;
+				[_unit, _glHEDP, 50] call _fnc_AddObjectsCargo;
 				[_unit, _glsmokeR, 40] call _fnc_AddObjectsCargo;
 				[_unit, _glflareR, 40] call _fnc_AddObjectsCargo;
 				[_unit, _glflareG, 40] call _fnc_AddObjectsCargo;
@@ -516,6 +542,7 @@ if (_isMan) then {
 				[_unit, _smokegrenadeG, 15] call _fnc_AddObjectsCargo;
 
 				[_unit, _bandage, 40] call _fnc_AddObjectsCargo;
+				[_unit, _morph, 20] call _fnc_AddObjectsCargo;
 				if (GVARMAIN(mod_ACE3)) then {
 					[_unit, "ACE_salineIV", 25] call _fnc_AddObjectsCargo;
 					[_unit, _flashBang, 15] call _fnc_AddObjectsCargo;

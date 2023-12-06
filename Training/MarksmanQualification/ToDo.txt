@@ -1,0 +1,7 @@
+Image with rules on noticeboard instead of messages.
+Split the courses so you can't mistake other lanes targets for your own.
+Wrong name on shooting other peoples target. Handcuff not working.
+Possible time adjustment, increase by 10%.
+Lowering some of the foliage & cover.
+Create logic for iron sights only.
+Create logic for standing on platform only.

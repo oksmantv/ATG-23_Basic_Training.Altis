@@ -626,10 +626,15 @@ switch (_TypeOfObjective) do {
 		_Hostage2 = _Group CreateUnit [(selectRandom _CivilianUnits), getPos _House, [], 0, "NONE"];
 
 		{
-			[_X, true] call ACE_captives_fnc_setHandcuffed;
-			_X setCaptive true;
-			_X setBehaviour "CARELESS";
 			_X disableAI "MOVE";
+			_X setUnitPos "MIDDLE";
+			_X setCaptive true;
+			removeAllWeapons _X;
+			removeGoggles _X;
+			removeBackpack _X;
+			removeHeadgear _X;
+			_X addGoggles "G_Blindfold_01_black_F";
+			_X playMove "acts_aidlpsitmstpssurwnondnon04";
 		} foreach [_Hostage1,_Hostage2];
 
 		if (_GarrisonMaxSize > 10) then { _GarrisonMaxSize = 10 };
@@ -642,10 +647,12 @@ switch (_TypeOfObjective) do {
 				_Unit = _Group CreateUnit [(_Leaders call BIS_FNC_selectRandom), [_Position select 0,_Position select 1,0], [], 10, "NONE"];
 				_Unit setRank "SERGEANT";
 				_Unit remoteExec ["GW_SetDifficulty_fnc_setSkill",0];
+				_Unit setUnitPos (selectRandom ["MIDDLE","UP"]);
 			} else {
 				_Unit = _Group CreateUnit [(_Units call BIS_FNC_selectRandom), [_Position select 0,_Position select 1,0], [], 10, "NONE"];
 				_Unit setRank "PRIVATE";
 				_Unit remoteExec ["GW_SetDifficulty_fnc_setSkill",0];
+				_Unit setUnitPos (selectRandom ["MIDDLE","UP"]);
 			};
 		};
 		

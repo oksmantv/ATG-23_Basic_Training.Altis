@@ -1,19 +1,31 @@
 // Global Commands
-Dense_CQB_Garrison = compile preprocessFileLineNumbers "Training\Dense_CQB_Garrison.sqf";
-OKS_SpawnEnemyVehicle = compile preprocessFileLineNumbers "Scripts\OKS_SpawnEnemyVehicle.sqf";
+execVM "Training\CompoundBreach\init.sqf";
+
+// Marksman Course
+OKS_Marksman_Debug = false;
+publicVariable "OKS_Marksman_Debug";
+
+OKS_Marksman_Qualification_Action = compile preprocessFileLineNumbers "Training\MarksmanQualification\OKS_Marksman_Qualification_Action.sqf";
+OKS_Marksman_Qualification_Function = compile preprocessFileLineNumbers "Training\MarksmanQualification\OKS_Marksman_Qualification_Function.sqf";
+OKS_Marksman_Qualification_Target = compile preprocessFileLineNumbers "Training\MarksmanQualification\OKS_Marksman_Qualification_Target.sqf";
+OKS_Marksman_Qualification_WeaponSelect = compile preprocessFileLineNumbers "Training\MarksmanQualification\OKS_Marksman_Qualification_WeaponSelect.sqf";
+
+//Dense_CQB_Garrison = compile preprocessFileLineNumbers "Training\Dense_CQB_Garrison.sqf";
+//OKS_SpawnEnemyVehicle = compile preprocessFileLineNumbers "Scripts\OKS_SpawnEnemyVehicle.sqf";
 MGSpawner = compile preprocessFileLineNumbers "Training\MGSpawner.sqf";
-3DReportSpawner = compile preprocessFileLineNumbers "Training\3DReportSpawner.sqf";
+
+//3DReportSpawner = compile preprocessFileLineNumbers "Training\3DReportSpawner.sqf";
 AT_Spawner = compile preprocessFileLineNumbers "Training\AT_Spawner.sqf";
 AI_Death = compile preprocessFileLineNumbers "Training\AI_Death.sqf";
 CQB_Garrison = compile preprocessFileLineNumbers "Training\CQB_Garrison.sqf";
 OKS_PlaySound = compile preprocessFileLineNumbers "Training\OKS_PlaySound.sqf";
 DryRunCode = compile preprocessFileLineNumbers "Training\DryRunCode.sqf";
 LiveRunCode = compile preprocessFileLineNumbers "Training\LiveRunCode.sqf";
-Attack_DoMove = compile preprocessFileLineNumbers "Training\Attack_DoMove.sqf";
+//Attack_DoMove = compile preprocessFileLineNumbers "Training\Attack_DoMove.sqf";
 MedicalQualificationPatients = compile preprocessFileLineNumbers "Medical\MedicalQualificationPatients.sqf";
-AmbushActivate = compile preprocessFileLineNumbers "Training\AmbushActivate.sqf";
-AmbushAction = compile preprocessFileLineNumbers "Training\AmbushAction.sqf";
-ConvoySpawn = compile preprocessFileLineNumbers "Scripts\OKS_Spawn\OKS_Convoy_Spawn.sqf";
+// AmbushActivate = compile preprocessFileLineNumbers "Training\AmbushActivate.sqf";
+// AmbushAction = compile preprocessFileLineNumbers "Training\AmbushAction.sqf";
+// ConvoySpawn = compile preprocessFileLineNumbers "Scripts\OKS_Spawn\OKS_Convoy_Spawn.sqf";
 
 
 // AT Range
@@ -21,21 +33,21 @@ OKS_AT_Spawn_Active = false;
 [AT_Range_PC,"Activate Range","OKS_AT_Spawn_Active",false,true,true] execVM "Scripts\NEKY_AddAction.sqf";
 [AT_Range_PC,"Deactivate Range","OKS_AT_Spawn_Active",false,true,false] execVM "Scripts\NEKY_AddAction.sqf";
 
-// Ambush
-AmbushAction_0 setVariable ["AMBUSH_TEXT","Ambush 0",true];
-[AmbushAction_0,ConvoySpawn_0,ConvoyWP_0,ConvoyEnd_0,EAST] execVM "Training\AmbushAction.sqf";
+// // Ambush
+// AmbushAction_0 setVariable ["AMBUSH_TEXT","Ambush 0",true];
+// [AmbushAction_0,ConvoySpawn_0,ConvoyWP_0,ConvoyEnd_0,EAST] execVM "Training\AmbushAction.sqf";
 
-AmbushAction_1 setVariable ["AMBUSH_TEXT","Ambush 1",true];
-[AmbushAction_1,ConvoySpawn_1,ConvoyWP_1,ConvoyEnd_1,EAST] execVM "Training\AmbushAction.sqf";
+// AmbushAction_1 setVariable ["AMBUSH_TEXT","Ambush 1",true];
+// [AmbushAction_1,ConvoySpawn_1,ConvoyWP_1,ConvoyEnd_1,EAST] execVM "Training\AmbushAction.sqf";
 
-AmbushAction_2 setVariable ["AMBUSH_TEXT","Ambush 2",true];
-[AmbushAction_2,ConvoySpawn_2,ConvoyWP_2,ConvoyEnd_2,EAST] execVM "Training\AmbushAction.sqf";
+// AmbushAction_2 setVariable ["AMBUSH_TEXT","Ambush 2",true];
+// [AmbushAction_2,ConvoySpawn_2,ConvoyWP_2,ConvoyEnd_2,EAST] execVM "Training\AmbushAction.sqf";
 
-AmbushAction_3 setVariable ["AMBUSH_TEXT","Ambush 3",true];
-[AmbushAction_3,ConvoySpawn_3,ConvoyWP_3,ConvoyEnd_3,EAST] execVM "Training\AmbushAction.sqf";
+// AmbushAction_3 setVariable ["AMBUSH_TEXT","Ambush 3",true];
+// [AmbushAction_3,ConvoySpawn_3,ConvoyWP_3,ConvoyEnd_3,EAST] execVM "Training\AmbushAction.sqf";
 
-AmbushAction_4 setVariable ["AMBUSH_TEXT","Ambush 4",true];
-[AmbushAction_4,ConvoySpawn_4,ConvoyWP_4,ConvoyEnd_4,EAST] execVM "Training\AmbushAction.sqf";
+// AmbushAction_4 setVariable ["AMBUSH_TEXT","Ambush 4",true];
+// [AmbushAction_4,ConvoySpawn_4,ConvoyWP_4,ConvoyEnd_4,EAST] execVM "Training\AmbushAction.sqf";
 
 // Global disable for Pop-Up Targets.
 boundPopup = [];
@@ -78,7 +90,7 @@ OKS_CourseReset = {
 };
 
 // CQB Exercise
-[Dense_1] execVM "Training\Dense_CQB_Action.sqf";
+// [Dense_1] execVM "Training\Dense_CQB_Action.sqf";
 execVM "Training\DryRun_Action.sqf";
 execVM "Training\CQB_Actions.sqf";
 

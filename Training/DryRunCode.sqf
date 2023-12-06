@@ -4,6 +4,7 @@ Params ["_Target","_Caller","_Trigger","_Targets"];
 SystemChat str _this;
 _CountOfTargets = count _Targets;
 
+{(nearestBuilding _Trigger) animate [_X, 0]} foreach (animationNames nearestBuilding _Trigger);
 {if(!isPlayer _X && _X inArea _Trigger) then {deleteVehicle _X}} foreach allUnits;
 
 // Reset Target and Variables

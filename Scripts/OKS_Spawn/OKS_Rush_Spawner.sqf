@@ -48,7 +48,8 @@
 			[_Group,_Range,10,[],[],false] remoteExec ["lambs_wp_fnc_taskRush",0];
 
 			waitUntil { sleep 5; {Alive _X || [_X] call ace_common_fnc_isAwake} count units _Group < 1};
-			systemChat "Group destroyed or unconscious. Passed WaitUntil";
+			systemChat "Group destroyed or unconscious. Passed WaitUntil. Sleeping 120 until respawn.";
+			Sleep 120;
 		};
 		
 		if(triggerActivated _TriggerActivatedToDisableSpawner) exitWith {

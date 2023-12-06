@@ -17,7 +17,7 @@ class GW_FRAMEWORK {	// NOTE: SENSETIVE, UPPERCASE ONLY FOR BOOL
 	class Naming {		//	NOTE: Changing any of these settings will require mission reload for it to be affected
 		#define GAME_MODE "ATG"									// GameMode
 		#define PLAYER_COUNT "23"								// Player Count
-		#define BRIEFING_NAME "Basic Training 4.3"						// Mission Name
+		#define BRIEFING_NAME "Basic Training 5.4"						// Mission Name
 		#define LOBBY_DESCRIPTION ""							// Description in mission select
 		#define ON_LOAD_TEXT ""									// Description on loading
 		#define MISSION_VERSION 1								// Version of mission
@@ -69,6 +69,130 @@ wreckManagerMode = 0;
 respawn = "BASE";
 respawndelay = 20;
 respawnOnStart = 0;
+
+class CfgSounds
+{
+	sounds[] = {}; // OFP required it filled, now it can be empty or absent depending on the game's version
+
+	class OKS_CountDown
+	{
+		name = "OKS_CountDown";						// display name
+		sound[] = { "Training\MarksmanQualification\oks_countdown.ogg", 1, 1, 25 };	// file, volume, pitch, maxDistance
+		titles[] = { 0, "" };			// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0.1;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};
+
+	class OKS_Buzzer
+	{
+		name = "OKS_Buzzer";						// display name
+		
+		sound[] = { "Training\MarksmanQualification\oks_buzzer.ogg", 1, 1, 25 };	// file, volume, pitch, maxDistance
+		titles[] = { 0, "" };			// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0.1;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};
+
+	class OKS_FailBuzz
+	{
+		name = "OKS_FailBuzz";						// display name
+		sound[] = { "Training\MarksmanQualification\oks_failbuzz.ogg", 0.6, 1, 25 };	// file, volume, pitch, maxDistance
+		titles[] = { 0, "" };			// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0.1;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};	
+
+	class oks_hit_1
+	{
+		name = "oks_hit_1";						// display name
+		sound[] = { "Training\MarksmanQualification\oks_hit_1.ogg", 1, 1, 25 };	// file, volume, pitch, maxDistance
+		titles[] = { 0, "" };			// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0.1;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};	
+
+	class oks_hit_2
+	{
+		name = "oks_hit_2";						// display name
+		sound[] = { "Training\MarksmanQualification\oks_hit_2.ogg", 1, 1, 25 };	// file, volume, pitch, maxDistance
+		titles[] = { 0, "" };			// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0.1;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};	
+
+	class oks_hit_3
+	{
+		name = "oks_hit_3";						// display name
+		sound[] = { "Training\MarksmanQualification\oks_hit_3.ogg", 1, 1, 25 };	// file, volume, pitch, maxDistance
+		titles[] = { 0, "" };			// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0.1;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};	
+
+	class oks_hit_4
+	{
+		name = "oks_hit_4";						// display name
+		sound[] = { "Training\MarksmanQualification\oks_hit_4.ogg", 1, 1, 25 };	// file, volume, pitch, maxDistance
+		titles[] = { 0, "" };			// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0.1;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};	
+
+	class oks_hit_5
+	{
+		name = "oks_hit_5";						// display name
+		sound[] = { "Training\MarksmanQualification\oks_hit_5.ogg", 1, 1, 25 };	// file, volume, pitch, maxDistance
+		titles[] = { 0, "" };			// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0.1;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};	
+
+	class oks_hit_6
+	{
+		name = "oks_hit_6";						// display name
+		sound[] = { "Training\MarksmanQualification\oks_hit_6.ogg", 1, 1, 25 };	// file, volume, pitch, maxDistance
+		titles[] = { 0, "" };			// subtitles
+
+		titlesFont = "LCD14";		// OFP:R - xtitles font family
+		titlesSize = 0.1;			// OFP:R - titles font size
+
+		forceTitles = 0;			// Arma 3 - display titles even if global show titles option is off (1) or not (0)
+		titlesStructured = 0;		// Arma 3 - treat titles as Structured Text (1) or not (0)
+	};	
+
+};
 
 class Params {
 	#define LOAD_PARAMS

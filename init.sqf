@@ -181,7 +181,7 @@ Sleep 5;
 			[flag_independent_1, _AMHQ, _Steerable, _Height] execVM "Scripts\NEKY_Paradrop\OKS_MHQ_Paradrop.sqf";
 		};
 	};
-	execVM "Scripts\BermActions.sqf";
+	
 
 Sleep 10;
 

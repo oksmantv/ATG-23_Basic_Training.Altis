@@ -1,7 +1,8 @@
 // Setup
 _Debug_Variable = true;
-Params ["_Target","_Caller","_Trigger","_Targets",["_RandomSpawn",false,[false]]];
+Params ["_Target","_Caller","_Trigger","_Targets","_RandomCount",["_RandomSpawn",true,[false]]];
 {if(!isPlayer _X && _X inArea _Trigger) then {deleteVehicle _X}} foreach allUnits;
+{(nearestBuilding _Trigger) animate [_X, 0]} foreach (animationNames nearestBuilding _Trigger);
 [_Target,1] call BIS_fnc_dataTerminalAnimate;
 _LiveTargets = CreateGroup independent;
 _Leaders = ["I_Soldier_SL_F","I_Soldier_TL_F"];
@@ -21,7 +22,6 @@ _Units = [
 
 /// Spawn Live Targets & Hide PopUp Targets
 if(_RandomSpawn) then {
-	_RandomCount = 8;
 	_CopyArrayTarget = [];
 	{
 		[_X,true] remoteExec ["hideObject",0];
