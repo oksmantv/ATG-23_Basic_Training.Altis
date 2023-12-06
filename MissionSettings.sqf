@@ -18,8 +18,8 @@ GOL_UGL_Chance = 0.25;
 
 /* AI Static Settings */
 // 0 = 0%, 1 = 100%
-GOL_Static_Enable_Chance = 0.25;
-GOL_Static_Enable_Refresh = 45;
+GOL_Static_Enable_Chance = 0.5;
+GOL_Static_Enable_Refresh = 30;
 
 /* AI Vehicle Settings */
 // Removes HE/FRAG rounds from SPG-9, T-** Tanks and BMP1s.
@@ -128,7 +128,8 @@ if(!isNil "MHQ_1") then {
 [] spawn {
 	if(isServer && GOL_OKS_AMBIENCE isEqualTo 1) then {
 		waitUntil {sleep 1; !(isNil "OKS_FaceSwap")};
-		[east,"russian"] spawn OKS_FaceSwap;
+		[east,"greek"] spawn OKS_FaceSwap;
+		[independent,"greek"] spawn OKS_FaceSwap;
 	};
 };
 

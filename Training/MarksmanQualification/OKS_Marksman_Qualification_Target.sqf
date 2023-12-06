@@ -1,16 +1,22 @@
 
 params ["_Target","_Row","_Index","_Terminal"];
 
+// Get latest range variables
 _TargetRowArray = _Terminal getVariable [format["OKS_Targets_Row_%1_Array",_Row],[]];
 _TargetAllArray = _Terminal getVariable ["OKS_Targets_All_Array",[]];
+
+// Add target to range variable
 _TargetRowArray pushBackUnique _Target;
 _TargetAllArray pushBackUnique _Target;
 
+// Set new range variable
 _Terminal setVariable [format["OKS_Targets_Row_%1_Array",_Row],_TargetRowArray,true];
 _Terminal setVariable ["OKS_Targets_All_Array",_TargetAllArray,true];
 
+// Set Index on Target
 _Target setVariable ["OKS_Target_Terminal",_Terminal,true];
 
+// Add EventHandler
 _Target addEventHandler ["Hit", {
 	params ["_Target", "_source", "_damage", "_Shooter"];
 
@@ -28,6 +34,8 @@ _Target addEventHandler ["Hit", {
 			_HitArray = _Shooter getVariable ["OKS_Hit_Targets",[]];
 			_HitScore = _Shooter getVariable ["OKS_Hit_Score",0];			
 			if(!(_Target in _HitArray)) then {
+				_SoundEffect = selectRandom ["oks_hit_1","oks_hit_2","oks_hit_3","oks_hit_4","oks_hit_5","oks_hit_6"];
+				_SoundEffect remoteExec ["playSound",_Shooter];
 				_HitArray pushBackUnique _Target;
 				_Shooter setVariable ["OKS_Hit_Targets",_HitArray,true];
 				_Shooter setVariable ["OKS_Hit_Score",(_HitScore + 1),true];
@@ -46,7 +54,8 @@ _Target addEventHandler ["Hit", {
 			"Not standing, rested or deployed. Hit does not count!" remoteExec ["SystemChat",_Shooter];
 		}
 	} else {
-		[player,format["%2 interrupted %1's qualification run by shooting at his target.",name _DesignatedShooter,name _Shooter]] remoteExec ["sideChat",0];
+		["hq","side",format["%2 interrupted %1's qualification run by shooting at his target.",name _DesignatedShooter,name _Shooter]] remoteExec ["OKS_Chat",0];
+		[_Shooter, true, _Shooter] remoteExec ["ACE_captives_fnc_setHandcuffed",0];
 		
 		_Target spawn {		
 			sleep 2;

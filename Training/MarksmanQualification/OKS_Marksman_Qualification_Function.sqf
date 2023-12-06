@@ -11,9 +11,11 @@ _TargetOrder = [
 	10, 8, 7, 6, 8, 9, 7, 10, 10, 9
 ];
 
+// no-pop setup
 nopop = true;
 publicVariable "nopop";
 
+// Add Player Shotcount
 _Player setVariable ["OKS_Shot_Count",0,true];
 _Player removeAllEventHandlers "Fired";
 _Player addEventHandler ["Fired",{
@@ -23,26 +25,35 @@ _Player addEventHandler ["Fired",{
 	_unit setVariable ["OKS_Shot_Count",_Count];
 }];
 
+// Reset Hit Array and Score
 _Player setVariable ["OKS_Hit_Targets",[],true];
 _Player setVariable ["OKS_Hit_Score",0,true];
 
+// Reset Active Shooter
 _Terminal setVariable ["OKS_Current_Shooter",_Player,true];
 
+// Hide all targets
 _TargetAllArray = _Terminal getVariable ["OKS_Targets_All_Array",[]];
 {
 	[_X, true] remoteExec ["hideObject",0];
 } foreach _TargetAllArray;
 
+// Reset Animation All Targets
 {_X animateSource ["terc", 0]} foreach _TargetAllArray;
 
-[player,"side",format["%1 have started marksman course %2 for %3.",name _Player,_Index,_SelectedWeapon]] remoteExec ["SideChat",0]; sleep 2;
+// Notify Player
+
+["hq","side",format["%1 have started marksman course %2 for %3.",name _Player,_Index,_SelectedWeapon]] remoteExec ["OKS_Chat",0]; sleep 2;
 format ["You have 2 Magazines, 60 rounds and you will receive %1 targets.",count _TargetOrder] remoteExec ["systemChat",_Player]; sleep 2;
 format ["Rank 1: 35 - Rank 2: 45 - Rank 3: 55"] remoteExec ["systemChat",_Player]; sleep 2;
 
+// Countdown
+["OKS_CountDown"] remoteExec ["PlaySound",_Player];
 { 
 	format["%1..",_X] remoteExec ["systemChat",_Player]; sleep 1;
 } foreach [3,2,1];
 
+// Start Qualification
 {
 	if(!(_Terminal getVariable ['OKS_Range_Active',false])) exitWith {
 		["You have cancelled the qualification course prematurely."] remoteExec ["systemChat",_Player];
@@ -90,8 +101,12 @@ format ["Rank 1: 35 - Rank 2: 45 - Rank 3: 55"] remoteExec ["systemChat",_Player
 			switch (primaryWeapon _Player) do {
 				case "arifle_Katiba_F": { _TimeDelay = 5.4};
 				case "arifle_Mk20_plain_F": { _TimeDelay = 4.7};
+				case "arifle_CTAR_blk_F": { _TimeDelay = 4.8};
 				case "arifle_TRG21_F": { _TimeDelay = 4.7};		
-				case "arifle_MXM_Black_F": { _TimeDelay = 3.8};
+				case "rhs_weap_ak74mr": { _TimeDelay = 5.4};
+				case "rhs_weap_m16a4_carryhandle": { _TimeDelay = 4.7};
+				case "rhs_weap_ak103_zenitco01_b33": { _TimeDelay = 4.8};
+				case "arifle_AK12_F": { _TimeDelay = 4.7};
 				case "arifle_MX_Black_F": { _TimeDelay = 3.5};
 				default { _TimeDelay = 5};
 			};
@@ -112,6 +127,7 @@ format ["Rank 1: 35 - Rank 2: 45 - Rank 3: 55"] remoteExec ["systemChat",_Player
 
 	[_SelectedTarget, true] remoteExec ["hideObject",0];
 	if((_SelectedTarget getVariable ["OKS_isHit",false]) == false) then {
+		"OKS_FailBuzz" remoteExec ["playSound",_Player];
 		_SelectedTarget setVariable ["OKS_isHit",false,true];
 	};
 	_SelectedTarget spawn {
@@ -132,14 +148,18 @@ if(["invalid", _SelectedWeapon] call BIS_fnc_inString) then {
 	// Completed Course
 	if(_PlayerScore >= 35) then {
 		_ResultText = format["completed the rank 1 qualification for the %1",_SelectedWeapon];
+		_Terminal setObjectTextureGlobal [0,"Training\MarksmanQualification\rank1.jpg"];
 	};
 	if(_PlayerScore >= 45) then {
 		_ResultText = format["completed the rank 2 qualification for the %1",_SelectedWeapon];
+		_Terminal setObjectTextureGlobal [0,"Training\MarksmanQualification\rank2.jpg"];
 	};
 	if(_PlayerScore >= 55) then {
 		_ResultText = format["completed the rank 3 qualification for the %1",_SelectedWeapon];
+		_Terminal setObjectTextureGlobal [0,"Training\MarksmanQualification\rank3.jpg"];
 	};
 };
 
 _Terminal setVariable ['OKS_Range_Active',false,true];
-[player,"side",format["%1 scored %2 out of %3 and %4.",name _Player,_PlayerScore,(count _TargetOrder),_ResultText]] remoteExec ["sideChat",0];
+"OKS_Buzzer" remoteExec ["PlaySound",_Player];
+["hq","side",format["%1 scored %2 out of %3 and %4.",name _Player,_PlayerScore,(count _TargetOrder),_ResultText]] remoteExec ["OKS_Chat",0];
