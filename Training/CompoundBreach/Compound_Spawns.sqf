@@ -27,7 +27,7 @@ _Buildings = (nearestObjects [_Trigger, ["House"], 100]) select {_X inArea _Trig
 if(_LiveTargets) then {
 	_code = {
 		Params ["_TargetArray","_ProcentageOfTargets"];
-		_Debug_Variable = true;
+		_Debug_Variable = false;
 
 		{
 			_NearUnits = _X nearEntities ["Man",5];
@@ -41,6 +41,7 @@ if(_LiveTargets) then {
 
 		_Group = CreateGroup independent;
 		_Group setVariable ["acex_headless_blacklist",true,true];
+		[_Group,GOL_Static_Enable_Chance,GOL_Static_Enable_Refresh] remoteExec ["OKS_EnablePath",0];
 		_Leaders = ["I_Soldier_SL_F","I_Soldier_TL_F"];
 		_Units = [
 			"I_Soldier_A_F",
@@ -82,7 +83,7 @@ if(_LiveTargets) then {
 				};
 				if(_Debug_Variable) then {SystemChat format ["%1 Pos %2",group _unit,getPos _Unit]};
 				[_Unit,"PATH"] remoteExec ["disableAI",0];
-				[_Group,0.5,60] remoteExec ["OKS_EnablePath",0];
+				
 				_Unit setPosATL (getPosATL _SelectedPosition);
 				[_Unit,selectRandom["UP","MIDDLE"]] remoteExec ["setUnitPos",0];
 				_Unit addMPEventHandler ["MPKilled",{[_this select 0] spawn AI_Death}];

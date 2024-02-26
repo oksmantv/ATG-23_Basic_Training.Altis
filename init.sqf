@@ -12,7 +12,6 @@ if(HasInterface && isNil "OKS_FRIENDLY_SIDE") then {
 };
 
 /* Headless & ServiceStation */
-[] execVM "Scripts\HeadlessClient\HeadlessClient.sqf";
 ExecVM "Modules\Callsigns\ACE_Action.sqf";
 
 // Scoreboard Loop

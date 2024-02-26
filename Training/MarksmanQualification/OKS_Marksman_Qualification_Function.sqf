@@ -4,7 +4,7 @@ params ["_Index","_Terminal","_Player","_SelectedWeapon"];
 // Setup
 _TargetOrder = [
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-	9, 2, 3, 7, 4, 5, 8, 1, 6, 10,
+	5, 2, 3, 7, 4, 5, 8, 1, 6, 10,
 	6, 1, 9, 3, 5, 7, 8, 2, 4, 11,
 	7, 8, 3, 5, 2, 6, 7, 10, 4, 9,
 	2, 7, 9, 5, 6, 1, 10, 4, 8, 3,
@@ -63,7 +63,7 @@ format ["Rank 1: 35 - Rank 2: 45 - Rank 3: 55"] remoteExec ["systemChat",_Player
 		["Qualification disqualified. Reason: Fired more than 60 rounds."] remoteExec ["systemChat",_Player];	
 	};
 	private _TimeDelay = 0;
-	private _TimeMultiplier = 1.1;
+	private _TimeMultiplier = 1.25;
 	_SelectedRow = _X;
 	switch (_SelectedRow) do {
 		case 1: {
@@ -97,7 +97,7 @@ format ["Rank 1: 35 - Rank 2: 45 - Rank 3: 55"] remoteExec ["systemChat",_Player
 			_TimeDelay = 2.1 * _TimeMultiplier;
 		};
 		case 11: {
-			private _TimeMultiplier = 0.85;
+			private _TimeMultiplier = 0.9;
 			switch (primaryWeapon _Player) do {
 				case "arifle_Katiba_F": { _TimeDelay = 5.4};
 				case "arifle_Mk20_plain_F": { _TimeDelay = 4.7};

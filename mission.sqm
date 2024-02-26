@@ -5,14 +5,14 @@ class EditorData
 	angleGridStep=1.5707964;
 	scaleGridStep=10;
 	autoGroupingDist=10;
-	toggles=1546;
+	toggles=522;
 	mods[]=
 	{
 		"3denEnhanced"
 	};
 	class ItemIDProvider
 	{
-		nextID=15638;
+		nextID=15642;
 	};
 	class MarkerIDProvider
 	{
@@ -20,14 +20,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=15177;
+		nextID=15708;
 	};
 	class Camera
 	{
-		pos[]={12415.581,77.220238,14171.633};
-		dir[]={-0.29426154,-0.65633261,0.69472152};
-		up[]={-0.25598517,0.7544716,0.6043545};
-		aside[]={0.92080545,-1.1175871e-008,0.39002338};
+		pos[]={24479.098,83.876778,18923.404};
+		dir[]={0.38217652,-0.56271505,0.7330032};
+		up[]={0.26015392,0.8266511,0.49896747};
+		aside[]={0.88671446,-1.0244548e-008,-0.46231911};
 	};
 };
 binarizationWanted=0;
@@ -14818,7 +14818,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Basic Training 5.4";
+		briefingName="Basic Training 5.6";
 		resistanceWest=0;
 		resistanceEast=1;
 		timeOfChanges=1800.0002;
@@ -45144,7 +45144,6 @@ class Mission
 		{
 			dataType="Layer";
 			name="North-East Region";
-			state=1;
 			class Entities
 			{
 				items=11;
@@ -124655,151 +124654,6 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={12346.232,10.130856,14289.921};
-						angles[]={0,5.79389,0};
-					};
-					side="Empty";
-					flags=5;
-					class Attributes
-					{
-						init="this addAction [""<t color='#29FF54'>Return to Camp</t>"",{(_this select 1) setPos getPos compoundBreach}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - South</t>"",{(_this select 1) setPos getPos compound_1_flag_2}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - West</t>"",{(_this select 1) setPos getPos compound_1_flag_3}];" \n "" \n "";
-						name="compound_1_flag_1";
-					};
-					id=11045;
-					type="PortableFlagPole_01_F";
-					atlOffset=4.7683716e-007;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="Flag_Position_Property";
-							expression="_this animateSource ['Flag_source',_value,true]";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.75;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="Flag_Property";
-							expression="if(!(_this getVariable ['bis_flagPole_custom',false]) )then{_this setFlagTexture _value};";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="\A3\Data_F\Flags\flag_fd_red_CO.paa";
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={12400.443,6.585269,14206.195};
-						angles[]={0,5.79389,0};
-					};
-					side="Empty";
-					flags=5;
-					class Attributes
-					{
-						init="this addAction [""<t color='#29FF54'>Return to Camp</t>"",{(_this select 1) setPos getPos compoundBreach}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - North</t>"",{(_this select 1) setPos getPos compound_1_flag_1}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - West</t>"",{(_this select 1) setPos getPos compound_1_flag_3}];" \n "" \n "";
-						name="compound_1_flag_2";
-					};
-					id=11040;
-					type="PortableFlagPole_01_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="Flag_Position_Property";
-							expression="_this animateSource ['Flag_source',_value,true]";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.75;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="Flag_Property";
-							expression="if(!(_this getVariable ['bis_flagPole_custom',false]) )then{_this setFlagTexture _value};";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="\A3\Data_F\Flags\flag_fd_red_CO.paa";
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={12327.415,7.5447721,14220.335};
-						angles[]={0,5.79389,0};
-					};
-					side="Empty";
-					flags=5;
-					class Attributes
-					{
-						init="this addAction [""<t color='#29FF54'>Return to Camp</t>"",{(_this select 1) setPos getPos compoundBreach}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - South</t>"",{(_this select 1) setPos getPos compound_1_flag_2}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - North</t>"",{(_this select 1) setPos getPos compound_1_flag_1}];" \n "" \n "";
-						name="compound_1_flag_3";
-					};
-					id=11044;
-					type="PortableFlagPole_01_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="Flag_Position_Property";
-							expression="_this animateSource ['Flag_source',_value,true]";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.75;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="Flag_Property";
-							expression="if(!(_this getVariable ['bis_flagPole_custom',false]) )then{_this setFlagTexture _value};";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="\A3\Data_F\Flags\flag_fd_red_CO.paa";
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
 						position[]={12412.141,10.771381,14316.046};
 						angles[]={0,1.841749,0};
 					};
@@ -124843,7 +124697,7 @@ class Mission
 						nAttributes=2;
 					};
 				};
-				class Item4
+				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
@@ -124860,7 +124714,7 @@ class Mission
 					type="Land_Concrete_SmallWall_8m_F";
 					atlOffset=1.0626411;
 				};
-				class Item5
+				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
@@ -124877,7 +124731,7 @@ class Mission
 					type="Land_Concrete_SmallWall_8m_F";
 					atlOffset=0.95944405;
 				};
-				class Item6
+				class Item3
 				{
 					dataType="Object";
 					class PositionInfo
@@ -124894,7 +124748,7 @@ class Mission
 					type="Land_Concrete_SmallWall_8m_F";
 					atlOffset=1.0299416;
 				};
-				class Item7
+				class Item4
 				{
 					dataType="Object";
 					class PositionInfo
@@ -124930,7 +124784,7 @@ class Mission
 						nAttributes=1;
 					};
 				};
-				class Item8
+				class Item5
 				{
 					dataType="Object";
 					class PositionInfo
@@ -124966,7 +124820,7 @@ class Mission
 						nAttributes=1;
 					};
 				};
-				class Item9
+				class Item6
 				{
 					dataType="Object";
 					class PositionInfo
@@ -125002,7 +124856,7 @@ class Mission
 						nAttributes=1;
 					};
 				};
-				class Item10
+				class Item7
 				{
 					dataType="Object";
 					class PositionInfo
@@ -125018,7 +124872,7 @@ class Mission
 					id=11043;
 					type="Land_HelipadEmpty_F";
 				};
-				class Item11
+				class Item8
 				{
 					dataType="Object";
 					class PositionInfo
@@ -125054,7 +124908,7 @@ class Mission
 						nAttributes=1;
 					};
 				};
-				class Item12
+				class Item9
 				{
 					dataType="Layer";
 					name="Compound Breach 1";
@@ -125378,7 +125232,7 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this spawn { waitUntil {!isNil ""Compound_Spawns"" && !isNil ""Compound_Actions"" && !isNil ""Compound_Index_1""}; [_this,1,Compound_1] remoteExec [""Compound_Actions"",0]};";
+								name="Neochori_1_W";
 							};
 							id=11014;
 							type="Land_DataTerminal_01_F";
@@ -125395,7 +125249,7 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this spawn { waitUntil {!isNil ""Compound_Spawns"" && !isNil ""Compound_Actions"" && !isNil ""Compound_Index_1""}; [_this,1,Compound_1] remoteExec [""Compound_Actions"",0]};";
+								name="Neochori_1_S";
 							};
 							id=11032;
 							type="Land_DataTerminal_01_F";
@@ -125413,7 +125267,7 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this spawn { waitUntil {!isNil ""Compound_Spawns"" && !isNil ""Compound_Actions"" && !isNil ""Compound_Index_1""}; [_this,1,Compound_1] remoteExec [""Compound_Actions"",0]};";
+								name="Neochori_1_N";
 							};
 							id=11034;
 							type="Land_DataTerminal_01_F";
@@ -125423,9 +125277,65 @@ class Mission
 					id=11036;
 					atlOffset=0.4902277;
 				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={12346.232,11.240616,14289.921};
+						angles[]={0,5.7938824,0};
+					};
+					side="Empty";
+					flags=4;
+					class Attributes
+					{
+						init="this addAction [""<t color='#29FF54'>Return to Camp</t>"",{(_this select 1) setPos getPos compoundBreach}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - South</t>"",{(_this select 1) setPos getPos compound_1_flag_2}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - West</t>"",{(_this select 1) setPos getPos compound_1_flag_3}];" \n "" \n "";
+						name="compound_1_flag_1";
+					};
+					id=15639;
+					type="Flag_Blue_F";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={12398.566,7.692421,14207.408};
+						angles[]={0,5.7938824,0};
+					};
+					side="Empty";
+					flags=4;
+					class Attributes
+					{
+						init="this addAction [""<t color='#29FF54'>Return to Camp</t>"",{(_this select 1) setPos getPos compoundBreach}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - North</t>"",{(_this select 1) setPos getPos compound_1_flag_1}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - West</t>"",{(_this select 1) setPos getPos compound_1_flag_3}];" \n "" \n "";
+						name="compound_1_flag_2";
+					};
+					id=15640;
+					type="Flag_Blue_F";
+					atlOffset=-0.12171888;
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={12327.415,8.6545334,14220.335};
+						angles[]={0,5.7938824,0};
+					};
+					side="Empty";
+					flags=4;
+					class Attributes
+					{
+						init="this addAction [""<t color='#29FF54'>Return to Camp</t>"",{(_this select 1) setPos getPos compoundBreach}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - South</t>"",{(_this select 1) setPos getPos compound_1_flag_2}];" \n "" \n "this addAction [""<t color='#29FF54'>Compound 1 - North</t>"",{(_this select 1) setPos getPos compound_1_flag_1}];" \n "" \n "";
+						name="compound_1_flag_3";
+					};
+					id=15641;
+					type="Flag_Blue_F";
+					atlOffset=4.7683716e-007;
+				};
 			};
 			id=11206;
-			atlOffset=22.101566;
+			atlOffset=-6.9751492;
 		};
 		class Item15
 		{

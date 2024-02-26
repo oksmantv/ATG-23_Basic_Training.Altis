@@ -19,3 +19,7 @@ waitUntil {sleep 5; !isNil "Compound_Actions"};
 [Compound_3,3,Compound3Trigger] remoteExec ["Compound_Actions",0];
 [Compound_4,4,Compound4Trigger] remoteExec ["Compound_Actions",0];
 [Compound_5,5,Compound5Trigger] remoteExec ["Compound_Actions",0];
+
+[Neochori_1_S,1,Compound_1] remoteExec ["Compound_Actions",0];
+[Neochori_1_W,1,Compound_1] remoteExec ["Compound_Actions",0];
+[Neochori_1_N,1,Compound_1] remoteExec ["Compound_Actions",0];

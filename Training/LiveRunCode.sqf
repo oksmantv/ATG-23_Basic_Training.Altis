@@ -1,6 +1,6 @@
 // Setup
 _Debug_Variable = true;
-Params ["_Target","_Caller","_Trigger","_Targets","_RandomCount",["_RandomSpawn",true,[false]]];
+Params ["_Target","_Caller","_Trigger","_Targets","_RandomCount",["_RandomSpawn",true,[false],["_Hostage",true,[true]]]];
 {if(!isPlayer _X && _X inArea _Trigger) then {deleteVehicle _X}} foreach allUnits;
 {(nearestBuilding _Trigger) animate [_X, 0]} foreach (animationNames nearestBuilding _Trigger);
 [_Target,1] call BIS_fnc_dataTerminalAnimate;
@@ -18,6 +18,9 @@ _Units = [
 	"I_Soldier_F",
 	"I_Soldier_F",
 	"I_Soldier_LAT_F"
+];
+_Hostage = [
+	"B_soldier_AR_F"
 ];
 
 /// Spawn Live Targets & Hide PopUp Targets
@@ -37,7 +40,7 @@ if(_RandomSpawn) then {
 	};
 
 	{
-
+		systemChat str _X;
 		// Spawn Unit
 		_Class = (_Units call BIS_FNC_selectRandom);
 		if(_Debug_Variable) then { SystemChat format ["Class: %1",_Class]};
