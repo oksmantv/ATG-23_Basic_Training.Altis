@@ -114,7 +114,7 @@ switch (toLower(_role)) do {
 		[_rifleGL, _rifleGL_mag, _glHEDP] call _addPrimary;
 		[_pistol, _pistol_mag, ""] call _addHandGun;
 		_IFAK call _addToUniform;
-		[[_cables,2],[_gps,1],[_flashBang,3],[_smokegrenadeB,3]] call _addToUniform;
+		[[_cables,2],[_gps,1],[_flashBang,3],[_smokegrenadeB,3],["ACE_SpraypaintRed",1]] call _addToUniform;
 		[[_grenade,4],[_rifleGL_mag_tr,4],[_pistol_mag,2],[_smokegrenadeY,4]] call _addToVest;
 		[[_rifleGL_mag,4],[_glHEDP,7],[_glSmokeR,5]] call _addToBackpack;
 		_rangefinder call _addBino;
@@ -134,7 +134,7 @@ switch (toLower(_role)) do {
 		[_rifle, _rifle_mag, ""] call _addPrimary;
 		[_pistol, _pistol_mag, ""] call _addHandGun;
 		_IFAK call _addToUniform;
-		[[_cables,4],[_defusalKit,1],[_flashBang,3],[_pistol_mag,2],[_smokegrenadeY,3]] call _addToUniform;
+		[[_cables,4],[_defusalKit,1],[_flashBang,3],[_pistol_mag,2],[_smokegrenadeY,3],["ACE_SpraypaintRed",1]] call _addToUniform;
 		[[_grenade,2],[_rifle_mag,4],[_rifle_mag_tr,4]] call _addToVest;
 		["","","","",_backpack] call _addEquipment;
 		[_MAT, _MAT_mag, ""] call _addLaunchers;
@@ -197,7 +197,7 @@ switch (toLower(_role)) do {
 		[_pistol, _pistol_mag, ""] call _addHandGun;
 		_IFAK call _addToUniform;
 		[[_cables,2],[_rifle_mag,2],[_pistol_mag,2],[_smokegrenadeY,4],[_grenade,2],[_flashBang,2]] call _addToUniform;
-		[[_rifle_mag,2],[_rifle_mag_tr,2],[_clacker,1],[_demoCharge,3]] call _addToVest;
+		[[_rifle_mag,2],[_rifle_mag_tr,2],[_clacker,1],[_demoCharge,3],["ACE_SpraypaintRed",1]] call _addToVest;
 		[[_LMG_mag,COUNT_AG_MAGS(_LMG_mag)]] call _addToBackpack;
 		if (GVAR(extraGear)) then {
 			(_FAKBig) call _addToBackpack;

@@ -54,21 +54,20 @@ _pointer = "";
 _sight = "";
 _bipod = "";
 
-_rifle = ["rhs_weap_ak74m", _silencer, _pointer, _sight, _bipod];
-_rifleC = ["rhs_weap_aks74u", _silencer, _pointer, _sight, _bipod];
-_rifleGL = ["rhs_weap_ak74m_gp25", _silencer, _pointer, _sight, _bipod];
-_rifleL = ["hlc_rifle_aek971_mtk", _silencer, _pointer, _sight, _bipod];
-_rifle_mag = "rhs_30Rnd_545x39_7N22_plum_AK";
-_rifle_mag_tr = "rhs_30Rnd_545x39_AK_plum_green";
-_rifleGL_mag = "rhs_30Rnd_545x39_7N22_plum_AK";
-_rifleGL_mag_tr = "rhs_30Rnd_545x39_AK_plum_green";
-_rifleL_mag = "hlc_60Rnd_545x39_t_rpk";
+_rifle = ["arifle_AKS_F", _silencer, _pointer, _sight, _bipod];
+_rifleC = ["SMG_02_F", _silencer, _pointer, _sight, _bipod];
+_rifleGL = ["UK3CB_Sten", _silencer, _pointer, _sight, _bipod];
+_rifleL = ["rhs_weap_savz61", _silencer, _pointer, _sight, _bipod];
+_rifle_mag = "30Rnd_545x39_Mag_Tracer_Green_F";
+_rifleC_mag = "30Rnd_9x21_Mag_SMG_02";
+_rifleGL_mag = "UK3CB_Sten_34Rnd_Magazine";
+_rifleL_mag = "rhsgref_20rnd_765x17_vz61";
 
-_LMG = ["rhs_weap_rpk74m_npz", _silencer, _pointer, _sight, _bipod];
-_LMG_mag = "rhs_60Rnd_545X39_AK_Green";
+_LMG = ["rhs_weap_aks74un", _silencer, _pointer, _sight, _bipod];
+_LMG_mag = "UK3CB_RPK74_60rnd_545x39_GM";
 
-_MMG = ["rhs_weap_pkm", _silencer, _pointer, _sight, _bipod];
-_MMG_mag = "rhs_100Rnd_762x54mmR_green";
+_MMG = ["rhs_weap_rpk74m", _silencer, _pointer, _sight, _bipod];
+_MMG_mag = "UK3CB_RPK74_60rnd_545x39_GT";
 
 _LAT = ["rhs_weap_rpg26", _silencer, _pointer, _sight, _bipod];
 _LAT_mag = "rhs_rpg26_mag";

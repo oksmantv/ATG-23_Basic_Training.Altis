@@ -1,6 +1,8 @@
 // Setup
 _Debug_Variable = true;
-Params ["_Target","_Caller","_Trigger","_Targets","_RandomCount",["_RandomSpawn",true,[false],["_Hostage",true,[true]]]];
+Params ["_Target","_Caller","_Trigger","_Targets","_RandomCount",["_RandomSpawn",true,[false]],["_Hostage",false,[true]]];
+Private ["_Class","_LiveTargets","_Hostages"];
+
 {if(!isPlayer _X && _X inArea _Trigger) then {deleteVehicle _X}} foreach allUnits;
 {(nearestBuilding _Trigger) animate [_X, 0]} foreach (animationNames nearestBuilding _Trigger);
 [_Target,1] call BIS_fnc_dataTerminalAnimate;
@@ -19,8 +21,8 @@ _Units = [
 	"I_Soldier_F",
 	"I_Soldier_LAT_F"
 ];
-_Hostage = [
-	"B_soldier_AR_F"
+_Hostages = [
+	"UK3CB_TKC_C_CIV"
 ];
 
 /// Spawn Live Targets & Hide PopUp Targets
@@ -34,19 +36,31 @@ if(_RandomSpawn) then {
 	{_CopyArrayTarget pushBackUnique _X} foreach _Targets;
 	_RandomTargetPositions = [];
 	For "_i" from 1 to _RandomCount do {
-		_Selected = selectRandom _Targets;
+		_Selected = selectRandom _CopyArrayTarget;
 		_RandomTargetPositions pushBackUnique _Selected;
-		_Targets deleteAt (_Targets find _Selected);
+		_CopyArrayTarget deleteAt (_CopyArrayTarget find _Selected);
 	};
 
 	{
 		systemChat str _X;
-		// Spawn Unit
-		_Class = (_Units call BIS_FNC_selectRandom);
+		if(_Hostage && (_RandomTargetPositions find _X == 1)) then {
+			_LiveTargets = createGroup civilian;
+			_Class = selectRandom _Hostages;
+		} else {
+			// Spawn Unit
+			_Class = (selectRandom _Units);
+		};
+
 		if(_Debug_Variable) then { SystemChat format ["Class: %1",_Class]};
 		_Unit = _LiveTargets CreateUnit [_Class, _X, [], 0, "CAN_COLLIDE"];
 		_Unit setPosATL (getPosATL _X);
 		_Unit setRank "PRIVATE";
+
+		
+		//systemChat str (_RandomTargetPositions find _X);
+		if(_Hostage && (_RandomTargetPositions find _X == 1)) then {
+			[_Unit, true] call ACE_captives_fnc_setHandcuffed;
+		};
 
 		// Setup Unit
 		if(_Debug_Variable) then {SystemChat format ["%1 Pos %2",group _unit,getPos _Unit]};

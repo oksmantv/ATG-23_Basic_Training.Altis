@@ -63,7 +63,7 @@ format ["Rank 1: 35 - Rank 2: 45 - Rank 3: 55"] remoteExec ["systemChat",_Player
 		["Qualification disqualified. Reason: Fired more than 60 rounds."] remoteExec ["systemChat",_Player];	
 	};
 	private _TimeDelay = 0;
-	private _TimeMultiplier = 1.25;
+	private _TimeMultiplier = 1.4;
 	_SelectedRow = _X;
 	switch (_SelectedRow) do {
 		case 1: {
@@ -97,7 +97,7 @@ format ["Rank 1: 35 - Rank 2: 45 - Rank 3: 55"] remoteExec ["systemChat",_Player
 			_TimeDelay = 2.1 * _TimeMultiplier;
 		};
 		case 11: {
-			private _TimeMultiplier = 0.9;
+			private _TimeMultiplier = 0.85;
 			switch (primaryWeapon _Player) do {
 				case "arifle_Katiba_F": { _TimeDelay = 5.4};
 				case "arifle_Mk20_plain_F": { _TimeDelay = 4.7};

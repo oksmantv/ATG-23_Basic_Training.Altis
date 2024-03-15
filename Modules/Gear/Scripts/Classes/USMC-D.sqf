@@ -42,13 +42,13 @@ if (_role isEqualTo "jetp") then {
 
 _silencer = "";
 _pointer = "";
-_sight = "";
+_sight = "JCA_optic_AHO_black";
 _bipod = "";
 
-_rifle = ["rhs_weap_m4a1_blockII_bk", _silencer, _pointer, _sight, _bipod];
-_rifleC = ["rhs_weap_m4a1_carryhandle", _silencer, _pointer, _sight, _bipod];
-_rifleGL = ["rhs_weap_m4a1_blockII_M203_bk", _silencer, _pointer, _sight, _bipod];
-_rifleL = ["rhs_weap_m4a1_blockII_bk", _silencer, _pointer, _sight, _bipod];
+_rifle = [["JCA_arifle_M4A4_VFG_black_F","JCA_arifle_M4A4_AFG_black_F"], _silencer, _pointer, _sight, _bipod];
+_rifleC = ["JCA_arifle_M4A4_VFG_black_F", _silencer, _pointer, _sight, _bipod];
+_rifleGL = ["JCA_arifle_M4A4_GL_sand_F", _silencer, _pointer, _sight, _bipod];
+_rifleL = ["JCA_arifle_M4A4_AFG_black_F", _silencer, _pointer, _sight, _bipod];
 _rifle_mag = "ACE_30Rnd_556x45_Stanag_Mk262_mag";
 _rifle_mag_tr = "30Rnd_556x45_Stanag_Tracer_Red";
 _rifleGL_mag = "ACE_30Rnd_556x45_Stanag_Mk262_mag";

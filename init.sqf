@@ -11,9 +11,6 @@ if(HasInterface && isNil "OKS_FRIENDLY_SIDE") then {
 	publicVariable "OKS_FRIENDLY_SIDE";
 };
 
-/* Headless & ServiceStation */
-ExecVM "Modules\Callsigns\ACE_Action.sqf";
-
 // Scoreboard Loop
 [] spawn {
 	while {true} do {
@@ -27,10 +24,6 @@ Call Compile PreProcessFileLineNumbers "MissionSettings.sqf";
 Sleep 5;
 	[] execVM "Training\Init.sqf";
 	[] execVM "Medical\Init.sqf";
-
-	if (GOL_BLU_AUTO_TS_CHANNEL isEqualTo 1) then {
-		execVM "Scripts\BLU_SetChannel.sqf";
-	};
 
 	{
 		[_x] execVM "Scripts\BLU_HeliActions.sqf";
@@ -180,7 +173,12 @@ Sleep 5;
 			[flag_independent_1, _AMHQ, _Steerable, _Height] execVM "Scripts\NEKY_Paradrop\OKS_MHQ_Paradrop.sqf";
 		};
 	};
-	
+		if(GOL_OKS_Tracker isEqualTo 1) then {
+		[] execVM "Scripts\OKS_Tracker\Init.sqf";
+	};
+	if(GOL_OKS_Stealth_Mission isEqualTo 1) then {
+		player setUnitTrait ["camouflageCoef",0.4];
+	};
 
 Sleep 10;
 
