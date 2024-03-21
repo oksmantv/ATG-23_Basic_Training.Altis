@@ -1,5 +1,5 @@
 /* Gear Settings */
-GOL_MAGNIFIED_OPTICS = 0;
+GOL_MAGNIFIED_OPTICS = 1;
 GOL_OPTICS = 1;
 GOL_WEAPONS = 1;
 GOL_ARSENAL_ALLOWED = 1;
@@ -18,9 +18,9 @@ GOL_UGL_Chance = 0.25;
 
 /* AI Static Settings */
 // 0 = 0%, 1 = 100%
-GOL_Static_Enable_Chance = 0.5;
-GOL_Static_Enable_Refresh = 30;
-OKS_Suppression = 0;
+GOL_Static_Enable_Chance = 0.2;
+GOL_Static_Enable_Refresh = 90;
+OKS_Suppression = 1;
 OKS_Suppressed_Threshold = 0.95;
 OKS_Suppressed_MinimumTime = 3;
 OKS_Suppressed_MaximumTime = 5;
