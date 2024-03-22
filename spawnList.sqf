@@ -7,7 +7,7 @@
 	Parameters:
 		#0: Number:	Activate zone
 	Returning Value:
-		None
+		None 
 */
 #include "script_Component.hpp"
 #define	COMPONENT spawnList
