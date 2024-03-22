@@ -18,7 +18,7 @@ GOL_UGL_Chance = 0.25;
 
 /* AI Static Settings */
 // 0 = 0%, 1 = 100%
-GOL_Static_Enable_Chance = 0.2;
+GOL_Static_Enable_Chance = 0;
 GOL_Static_Enable_Refresh = 90;
 OKS_Suppression = 1;
 OKS_Suppressed_Threshold = 0.95;
