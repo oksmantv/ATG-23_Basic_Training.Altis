@@ -3,11 +3,13 @@
 //	This initializes all the functions for OKS Ambience.
 //
 //	Made by Oksman
+OKS_Suppressed_Debug = false;
 
 OKS_Chat = compile preprocessFileLineNumbers "Scripts\OKS_Ambience\OKS_Chat.sqf"; // Used by Clients only
 if (hasInterface && !isServer) exitWith {false};	// Ensures only server or HC runs this script
 
 OKS_Faceswap = compile preprocessFileLineNumbers "Scripts\OKS_Ambience\OKS_FaceSwap.sqf";
+
 OKS_Dynamic_Setting = compile preprocessFileLineNumbers "Scripts\OKS_Dynamic\Settings.sqf";
 OKS_Nearby_Units_Hunt = compile preprocessFileLineNumbers "Scripts\OKS_Ambience\OKS_Nearby_Units_Hunt.sqf";
 OKS_Surrender = compile preprocessFileLineNumbers "Scripts\OKS_Ambience\OKS_Surrender.sqf";

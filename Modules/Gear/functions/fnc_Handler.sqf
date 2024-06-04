@@ -44,7 +44,7 @@ private [
 	"_glHE","_glHEDP","_glsmokeW","_glsmokeB","_glsmokeG","_glsmokeO","_glsmokeP","_glsmokeR","_glsmokeY","_glflareG","_glflareR","_glflareW",
 	"_map","_gps","_compass","_watch","_nvg","_parachute","_demoCharge","_satchelCharge","_toolKit",
 	"_cTab","_Android","_microDAGR","_HelmetCam",
-	"_bandage","_blood","_epi","_morph","_IFAK","_FAKSmall","_FAKBig","_pak","_saline","_salineSm",
+	"_bandage","_blood","_epi","_morph","_IFAK","_FAKSmall","_FAKMedium","_FAKBig","_pak","_saline","_salineSm",
 	"_barrel","_cables","_clacker","_defusalKit","_IRStrobe","_mapFlashLight","_mapTools","_rangefinder","_laserDesignator","_battery","_rangecard",
 	"_flashBang","_handFlareG","_handFlareR","_handFlareW","_handFlareY",
 	"_goggles","_helmet","_uniform","_vest","_backpack","_backpackRadio","_OfficerHelmet",
@@ -91,6 +91,39 @@ if (_isMan) then {
 	_isCivilian = (getNumber(configfile >> "CfgVehicles" >> (typeOf _unit) >> "side") isEqualTo 3);
 	_isPlayer = (isPlayer _unit);
 	_unit setVariable [QGVAR(Loadout), _role, _isPlayer];
+
+	_roleArray = [_role];
+	switch (_role) do {
+		case "pl": { _DisplayName = "Platoon Leader"; _roleArray pushBack _DisplayName};
+		case "fac": { _DisplayName = "Forward Air Controller"; _roleArray pushBack _DisplayName};
+		case "sl": { _DisplayName = "Squad Leader"; _roleArray pushBack _DisplayName};
+		case "sm": { _DisplayName = "Squad Medic"; _roleArray pushBack _DisplayName};
+		case "ftl": { _DisplayName = "Fireteam Leader"; _roleArray pushBack _DisplayName};
+		case "r": { _DisplayName = "Rifleman"; _roleArray pushBack _DisplayName};
+		case "g": { _DisplayName = "Grenadier"; _roleArray pushBack _DisplayName};
+		case "ag": { _DisplayName = "Asst. Gunner"; _roleArray pushBack _DisplayName};
+		case "ar": { _DisplayName = "Automatic Rifleman"; _roleArray pushBack _DisplayName};
+		case "ammg": { _DisplayName = "Asst. Medium Machine Gunner"; _roleArray pushBack _DisplayName};
+		case "mmg": { _DisplayName = "Medium Machine Gunner"; _roleArray pushBack _DisplayName};
+		case "crew": { _DisplayName = "Vehicle Crew"; _roleArray pushBack _DisplayName};
+		case "dragon": { _DisplayName = "Dragon"; _roleArray pushBack _DisplayName};
+		case "lr": { _DisplayName = "Light Rifleman"; _roleArray pushBack _DisplayName};
+		case "ab": { _DisplayName = "Ammo Bearer"; _roleArray pushBack _DisplayName};
+		case "aa": { _DisplayName = "Anti-Air"; _roleArray pushBack _DisplayName};
+		case "ahat": { _DisplayName = "Asst. Heavy AT"; _roleArray pushBack _DisplayName};
+		case "hat": { _DisplayName = "Heavy AT"; _roleArray pushBack _DisplayName};
+		case "p": { _DisplayName = "Chopper Pilot"; _roleArray pushBack _DisplayName};
+		case "pj": { _DisplayName = "Para-Rescueman"; _roleArray pushBack _DisplayName};
+		case "jetp": { _DisplayName = "Jet Pilot"; _roleArray pushBack _DisplayName};
+		case "marksman": { _DisplayName = "Marksman"; _roleArray pushBack _DisplayName};		
+	};
+	_unit setVariable ["GOL_SelectedRole",_roleArray,true];
+
+	if(time > 10 && isPlayer _unit) then {
+		format["%1 has selected the %2 kit.",name _unit,_roleArray select 1] remoteExec ["systemChat",0];
+	};
+
+
 	_unit setVariable ["BIS_enableRandomization", false];
 	if (_isPlayer) then {
 		_unit setVariable [QEGVAR(Common,isPlayer), true, true];
@@ -300,7 +333,7 @@ if (_isMan) then {
 						 if !(_X in _compatibleItems) then {_compatibleItems pushBack _backpackRadio}
 					};		
 
-					_blackList = ["rhsusf_acc_SpecterDR_pvs27","rhsusf_acc_su230","rhsusf_acc_g33_T1","rhsusf_acc_g33_T1_flip","rhsusf_acc_g33_xps3","rhsusf_acc_g33_xps3_flip","rhsusf_acc_g33_xps3_tan","rhsusf_acc_g33_xps3_tan_flip","ACE_acc_pointer_green","ACE_acc_pointer_green_ir","ACE_acc_pointer_red","acc_pointer_ir","acc_pointer_ir_broken","rhsusf_acc_anpeq15_top_h","rhsusf_acc_anpeq15_top_sc","rhsusf_acc_anpeq15_wmx_sc","rhsusf_acc_anpeq15_wmx_h","rhsusf_acc_anpeq15_wmx_light_sc","rhsusf_acc_anpeq15_wmx_light_h","rhsusf_acc_anpeq15_bk_top_h","rhsusf_acc_anpeq15_bk_top_sc","rhsusf_acc_anpeq15_h","rhsusf_acc_anpeq15_sc","rhsusf_acc_anpeq15_light_sc","rhsusf_acc_anpeq15_light_h","rhsusf_acc_anpeq15_bk_h","rhsusf_acc_anpeq15_bk_sc","rhsusf_acc_anpeq15_bk_light_sc","rhsusf_acc_anpeq15_bk_light_h","rhsusf_acc_anpeq16a_top_sc","rhsusf_acc_anpeq16a_top_h","rhsusf_acc_anpeq16a_light_top_sc","rhsusf_acc_anpeq16a_light_top_h","rhsusf_acc_anpas13gv1","hlc_charm_herstal","hlc_charm_izhmash","hlc_charm_teethgang","rhsusf_acc_anpvs27","hlc_isopod"];
+					_blackList = ["rhsusf_acc_SpecterDR_pvs27","rhsusf_acc_su230","rhsusf_acc_g33_T1","rhsusf_acc_g33_T1_flip","rhsusf_acc_g33_xps3","rhsusf_acc_g33_xps3_flip","rhsusf_acc_g33_xps3_tan","rhsusf_acc_g33_xps3_tan_flip","ACE_acc_pointer_green","ACE_acc_pointer_green_ir","ACE_acc_pointer_red","acc_pointer_ir","acc_pointer_ir_broken","rhsusf_acc_anpeq15_top_h","rhsusf_acc_anpeq15_top_sc","rhsusf_acc_anpeq15_wmx_sc","rhsusf_acc_anpeq15_wmx_h","rhsusf_acc_anpeq15_wmx_light_sc","rhsusf_acc_anpeq15_wmx_light_h","rhsusf_acc_anpeq15_bk_top_h","rhsusf_acc_anpeq15_bk_top_sc","rhsusf_acc_anpeq15_h","rhsusf_acc_anpeq15_sc","rhsusf_acc_anpeq15_light_sc","rhsusf_acc_anpeq15_light_h","rhsusf_acc_anpeq15_bk_h","rhsusf_acc_anpeq15_bk_sc","rhsusf_acc_anpeq15_bk_light_sc","rhsusf_acc_anpeq15_bk_light_h","rhsusf_acc_anpeq16a_top_sc","rhsusf_acc_anpeq16a_top_h","rhsusf_acc_anpeq16a_light_top_sc","rhsusf_acc_anpeq16a_light_top_h","rhsusf_acc_anpas13gv1"];
 					_whiteList = ["rhs_weap_optic_smaw"];							
 						
 					if(GOL_OPTICS == 1) then {
@@ -426,30 +459,6 @@ if (_isMan) then {
 								if !(_X in _compatibleItemsLMG) then {_compatibleItemsLMG pushBack _X};
 							} foreach (_LMG select 0);							
 						};																															
-					};
-
-					while {
-						_compatibleItems find "HLC_Charm_Herstal" != -1 ||
-						_compatibleItems find "HLC_Charm_Izhmash" != -1 ||
-						_compatibleItems find "HLC_Charm_Teethgang" != -1 ||
-						_compatibleItemsLMG find "HLC_Charm_Herstal" != -1 ||
-						_compatibleItemsLMG find "HLC_Charm_Izhmash" != -1 ||
-						_compatibleItemsLMG find "HLC_Charm_Teethgang" != -1 ||
-						_compatibleItemsGL find "HLC_Charm_Herstal" != -1 ||
-						_compatibleItemsGL find "HLC_Charm_Izhmash" != -1 ||
-						_compatibleItemsGL find "HLC_Isopod" != -1 ||
-						_compatibleItemsGL find "HLC_Charm_Teethgang" != -1
-					} do {		
-						_compatibleItems deleteAt (_compatibleItems find "HLC_Isopod");	
-						_compatibleItems deleteAt (_compatibleItems find "HLC_Charm_Herstal");					
-						_compatibleItems deleteAt (_compatibleItems find "HLC_Charm_Izhmash");
-						_compatibleItemsLMG deleteAt (_compatibleItemsLMG find "HLC_Charm_Herstal");
-						_compatibleItems deleteAt (_compatibleItems find "HLC_Charm_Teethgang");
-						_compatibleItemsLMG deleteAt (_compatibleItemsLMG find "HLC_Charm_Izhmash");
-						_compatibleItemsLMG deleteAt (_compatibleItemsLMG find "HLC_Charm_Teethgang");
-						_compatibleItemsGL deleteAt (_compatibleItemsGL find "HLC_Charm_Herstal");
-						_compatibleItemsGL deleteAt (_compatibleItemsGL find "HLC_Charm_Izhmash");
-						_compatibleItemsGL deleteAt (_compatibleItemsGL find "HLC_Charm_Teethgang");					
 					};
 
 					_compatibleItems append _whiteList;
@@ -604,8 +613,6 @@ if (_isMan) then {
 				[_unit, _glflareG, 40] call _fnc_AddObjectsCargo;
 				[_unit, _glflareW, 40] call _fnc_AddObjectsCargo;
 				[_unit, _grenade, 60] call _fnc_AddObjectsCargo;
-				[_unit, _flashbang, 60] call _fnc_AddObjectsCargo;
-				[_unit, "UK3CB_BAF_HandGrenade_Blank", 60] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeY, 60] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeG, 15] call _fnc_AddObjectsCargo;
 

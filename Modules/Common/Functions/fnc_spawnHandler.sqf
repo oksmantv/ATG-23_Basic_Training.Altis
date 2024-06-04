@@ -56,7 +56,6 @@ if !((count _unitArray) isEqualTo 0) then {
 		_unit setRank "PRIVATE";
 		_unit setPosATL _pos;
 		_unit setVariable [QGVAR(isSpawned), true];
-		_unit disableAI "MINEDETECTION";
 		if(OKS_Suppression isEqualTo 1) then {
 			[_unit] remoteExec ["OKS_Suppressed",0];
 		};
@@ -120,7 +119,7 @@ if ((count _vehicleArray) > 0) then {
 		};
 
 		if (_waypointArray isEqualTo []) then {
-			_vehicle allowCrewInImmobile true;
+			_vehicle allowCrewInImmobile false;
 		};
 
 		if (_collision isEqualTo "FLY") then {
@@ -173,9 +172,15 @@ if ((count _vehicleArray) > 0) then {
 				};
 				case "turret": {
 					_unit moveInTurret [_vehicle, (_x select 2)];
+					if(OKS_Suppression isEqualTo 1) then {
+						[_unit] remoteExec ["OKS_Suppressed",0];
+					};						
 				};
 				case "cargo": {
 					_unit moveInCargo [_vehicle, (_x select 1)];
+					if(OKS_Suppression isEqualTo 1) then {
+						[_unit] remoteExec ["OKS_Suppressed",0];
+					};	
 				};
 			};
 			_unit enableSimulationGlobal true;
@@ -186,6 +191,7 @@ if ((count _vehicleArray) > 0) then {
 		} forEach _crewList;
 
 		_vehicle enableSimulationGlobal true;
+		[_vehicle] spawn OKS_ForceVehicleSpeed;  
 		TRACE_1("Units added to vehicle", _groupNew);
 		if (((count _vehicleArray) > 1) && !_skipDelays) then {
 			sleep 5;
@@ -201,7 +207,10 @@ if !(_waypointArray isEqualTo []) then {
 		};
 		if(!isNil "OKS_Tracker" && GOL_OKS_Tracker isEqualTo 1) then {
 			[_group] remoteExec ["OKS_Tracker",2];
-		};		
+		};
+		if(OKS_Suppression isEqualTo 1) then {
+			{[_X] remoteExec ["OKS_Suppressed",0]} foreach units _group;
+		};			
 	};
 	{
 		_x params [["_position",[0,0,0]], ["_attributes",[]]];

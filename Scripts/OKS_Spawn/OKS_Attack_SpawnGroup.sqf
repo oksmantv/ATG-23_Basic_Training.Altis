@@ -46,6 +46,9 @@
 			};
 			sleep 0.5;
 		};
+		if(OKS_Suppression isEqualTo 1) then {
+			{[_X] remoteExec ["OKS_Suppressed",0]} foreach units _group;
+		};	
 	};
 	if(typeName _ClassnameOrNumber == "STRING") then {
 		_Vehicle = CreateVehicle [_ClassnameOrNumber,_Spawn];
@@ -54,6 +57,8 @@
 		};	
 		_Vehicle setDir _Dir;
 		_Group = [_Vehicle,_Side] call OKS_AddVehicleCrew;
+
+		[_Vehicle] spawn OKS_ForceVehicleSpeed;  
 	};
 	if(typeName _ClassnameOrNumber == "ARRAY") then {
 		_ClassnameOrNumber = selectRandom _ClassnameOrNumber;
@@ -63,6 +68,8 @@
 		};	
 		_Vehicle setDir _Dir;
 		_Group = [_Vehicle,_Side] call OKS_AddVehicleCrew;
+
+		[_Vehicle] spawn OKS_ForceVehicleSpeed;  
 	};
 	sleep 1;
 	{[_x] remoteExec ["GW_SetDifficulty_fnc_setSkill",0]} foreach units _Group;

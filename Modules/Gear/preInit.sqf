@@ -32,8 +32,8 @@ GVAR(StaminaCoef) = 0.5;
 			"BAF-D",			
 			"BAF-W",
 			"BAF-W-FALK",
-			"GERMAN-D",			
-			"GERMAN-W",
+			"GERMAN-W",			
+			"GERMAN-D",
 			"CBRN-WINTER",
 			"CTRG-D",			
 			"CTRG-W",
@@ -67,7 +67,6 @@ GVAR(StaminaCoef) = 0.5;
 			"USA-D",
 			"USA-W",	
 			"USA-CW-W",
-			"USA-XM8-W",	
 			"USMC-D",
 			"USMC-W",
 			"UKRAINE-W"
@@ -115,7 +114,6 @@ GVAR(StaminaCoef) = 0.5;
 			"US Army 2000 UCP",
 			"US Army 2010 MTP",
 			"US Army Cold War Woodland",
-			"US Army XM-8 Woodland",
 			"USMC Marpat Desert",
 			"USMC Marpat Woodland",
 			"Ukrainian Army"

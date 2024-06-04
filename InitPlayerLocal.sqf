@@ -138,3 +138,15 @@ fnc_medicalMessage = {
 };
 
 ["ace_treatmentStarted", fnc_medicalMessage] call CBA_fnc_addEventHandler;
+
+player addEventHandler ["InventoryOpened", {
+	params ["_unit", "_container"];
+
+    if(_container in [medical_box_west,medical_box_east]) then {
+        format["%1 accessed the medical crate at base.",name _unit] remoteExec ["systemChat",0];
+    };
+
+    if(typeOf _container in ["Box_Syndicate_Ammo_F","Box_Syndicate_Wps_F","B_supplyCrate_F"] && {_container distance _X < 150} count [flag_west_1,flag_east_1,flag_west_2,flag_east_2] > 0) then {
+        format["%1 accessed an ammo crate at base.",name _unit] remoteExec ["systemChat",0];
+    };
+}];
