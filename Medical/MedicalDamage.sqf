@@ -144,7 +144,6 @@ switch (_Severe) do {
 if (_Severe isEqualTo "dead") then {
 	sleep 3;
 };
-[_Unit, false] remoteExec ["hideObjectGlobal", 2];
 
 sleep 3;
 _Unit setVariable ["GOL_Qualification_Ready", true, true];

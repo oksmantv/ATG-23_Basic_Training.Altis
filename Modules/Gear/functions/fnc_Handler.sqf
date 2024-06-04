@@ -604,6 +604,8 @@ if (_isMan) then {
 				[_unit, _glflareG, 40] call _fnc_AddObjectsCargo;
 				[_unit, _glflareW, 40] call _fnc_AddObjectsCargo;
 				[_unit, _grenade, 60] call _fnc_AddObjectsCargo;
+				[_unit, _flashbang, 60] call _fnc_AddObjectsCargo;
+				[_unit, "UK3CB_BAF_HandGrenade_Blank", 60] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeY, 60] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeG, 15] call _fnc_AddObjectsCargo;
 

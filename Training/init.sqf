@@ -14,13 +14,14 @@ OKS_Marksman_Qualification_WeaponSelect = compile preprocessFileLineNumbers "Tra
 //OKS_SpawnEnemyVehicle = compile preprocessFileLineNumbers "Scripts\OKS_SpawnEnemyVehicle.sqf";
 MGSpawner = compile preprocessFileLineNumbers "Training\MGSpawner.sqf";
 
-//3DReportSpawner = compile preprocessFileLineNumbers "Training\3DReportSpawner.sqf";
 AT_Spawner = compile preprocessFileLineNumbers "Training\AT_Spawner.sqf";
 AI_Death = compile preprocessFileLineNumbers "Training\AI_Death.sqf";
 CQB_Garrison = compile preprocessFileLineNumbers "Training\CQB_Garrison.sqf";
 OKS_PlaySound = compile preprocessFileLineNumbers "Training\OKS_PlaySound.sqf";
 DryRunCode = compile preprocessFileLineNumbers "Training\DryRunCode.sqf";
 LiveRunCode = compile preprocessFileLineNumbers "Training\LiveRunCode.sqf";
+3DReportSpawner = compile preprocessFileLineNumbers "Training\3DReportSpawner.sqf";
+3DReportAction = compile preprocessFileLineNumbers "Training\3DReportAction.sqf";
 //Attack_DoMove = compile preprocessFileLineNumbers "Training\Attack_DoMove.sqf";
 MedicalQualificationPatients = compile preprocessFileLineNumbers "Medical\MedicalQualificationPatients.sqf";
 // AmbushActivate = compile preprocessFileLineNumbers "Training\AmbushActivate.sqf";

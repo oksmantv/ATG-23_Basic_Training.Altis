@@ -1,5 +1,7 @@
 // Setup
 _Debug_Variable = true;
+// [Terminal_1,player,House_1_Trigger,[House_1_T1,House_1_T2,House_1_T3,House_1_T4,House_1_T5],4,true,true] execVM "Training\LiveRunCode.sqf"
+
 Params ["_Target","_Caller","_Trigger","_Targets","_RandomCount",["_RandomSpawn",true,[false]],["_Hostage",false,[true]]];
 Private ["_Class","_LiveTargets","_Hostages"];
 

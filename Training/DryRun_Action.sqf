@@ -12,6 +12,7 @@ Terminal_1 AddAction ["<t color='#26FF88'>Activate Dry Run</t>",{
 	House_1_Trigger,
 	[House_1_T1,House_1_T2,House_1_T3,House_1_T4,House_1_T5]
 ],1,true,true,"","_target distance _this < 4"];
+
 Terminal_1 AddAction ["<t color='#FF0000'>Activate Live Run</t>",{
 	(_this select 3) Params ["_Trigger","_Targets"];
 	[(_this select 0),(_this select 1),_Trigger,_Targets,_RandomCount] remoteExec ["LiveRunCode",2];
@@ -21,6 +22,7 @@ Terminal_1 AddAction ["<t color='#FF0000'>Activate Live Run</t>",{
 	[House_1_T1,House_1_T2,House_1_T3,House_1_T4,House_1_T5],
 	4
 ],1,true,true,"","_target distance _this < 4"];
+
 Terminal_1 AddAction ["<t color='#FFA500'>Activate Live Run (Hostage)</t>",{
 	(_this select 3) Params ["_Trigger","_Targets","_RandomCount"];
 	[(_this select 0),(_this select 1),_Trigger,_Targets,_RandomCount,true,true] remoteExec ["LiveRunCode",2];

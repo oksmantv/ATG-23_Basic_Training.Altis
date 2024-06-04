@@ -12,7 +12,7 @@ params ["_Terminal","_SpawnPos","_Severe"];
     sleep 0.5;
     _Group = createGroup west;
     _Group setVariable ["acex_headless_blacklist",true,true];
-    _Unit = _Group createUnit ["B_Soldier_F",[0,0,0], [], -1, "CAN_COLLIDE"];
+    _Unit = _Group createUnit ["B_Soldier_F",[15385.4,17445.8,0], [], 15, "CAN_COLLIDE"];
 
     For "_i" from 0 to 30 do {
         _Unit addItemToUniform "ACE_ElasticBandage"
@@ -24,7 +24,7 @@ params ["_Terminal","_SpawnPos","_Severe"];
     } else {
         _Unit setDir (random 360);
     };
-    [_Unit,_Severe,_Terminal] execVM "Medical\MedicalDamage.sqf";
+    [_Unit,_Severe,_Terminal] spawn MedicalDamage;
     if(!isNull _Terminal) then {
         if (typeOf _Terminal == "Land_DataTerminal_01_F") then {
             [_Terminal,0] call BIS_fnc_dataTerminalAnimate;
