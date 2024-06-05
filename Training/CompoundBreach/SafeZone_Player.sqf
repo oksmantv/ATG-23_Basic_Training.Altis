@@ -22,12 +22,12 @@ while {true} do {
 		_Player = _X;
 		if(_Player inArea _Trigger) then {
 			if(_SetCaptive && !(captive _Player)) then {
-				_Player setCaptive true;
+				[_Player,true] remoteExec ["setCaptive",0];
 				"You are now set to captive." remoteExec ["systemChat",_Player];
 			};
 			
 			if(!_SetCaptive && (captive _Player)) then {
-				_Player setCaptive false;
+				[_Player,false] remoteExec ["setCaptive",0];
 				"You are now set to combatant." remoteExec ["systemChat",_Player];
 			}
 		};
