@@ -41,7 +41,7 @@ if(_LiveTargets) then {
 
 		_Group = CreateGroup independent;
 		_Group setVariable ["acex_headless_blacklist",true,true];
-		[_Group,GOL_Static_Enable_Chance,GOL_Static_Enable_Refresh] remoteExec ["OKS_EnablePath",0];
+		
 		_Leaders = ["I_Soldier_SL_F","I_Soldier_TL_F"];
 		_Units = [
 			"I_Soldier_A_F",
@@ -155,4 +155,5 @@ _PlayerGroups = (allGroups select {isPlayer (leader _X) && (leader _X) inArea _T
 {
 	[(leader _X),"side",format["Compound %1: Exercise complete.", _case]] remoteExec ["OKS_Chat",0];
 } forEach _PlayerGroups;
+playSound3D [MISSION_ROOT + "Training\MarksmanQualification\oks_buzzer.ogg", _Trigger, false, _Trigger, 5, 1, 50]; sleep 1;
 playSound3D [MISSION_ROOT + "evacuate_area.wav", _Trigger, false, _Trigger, 5, 1, 50];

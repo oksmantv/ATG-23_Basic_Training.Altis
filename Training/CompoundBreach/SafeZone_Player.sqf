@@ -31,7 +31,7 @@ while {true} do {
 				"You are now set to combatant." remoteExec ["systemChat",_Player];
 			}
 		};
-	} foreach allPlayers;
+	} foreach (list _Trigger);
 
 	sleep 0.5;
 };

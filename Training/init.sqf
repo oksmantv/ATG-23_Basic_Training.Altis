@@ -1,3 +1,5 @@
+// [] execVM "Training\init.sqf";
+
 // Global Commands
 execVM "Training\CompoundBreach\init.sqf";
 
