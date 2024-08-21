@@ -112,7 +112,7 @@ waitUntil{triggerActivated _Trigger};
 _Time = 0;
 waitUntil{sleep 0.01; _Time = _Time + 0.01; {!Alive _X || !([_X] call ace_common_fnc_isAwake)} count units _LiveTargets isEqualTo (count units _LiveTargets)};
 
-if({!Alive _X || !([_X] call ace_common_fnc_isAwake)} count units _HostageGroup isEqualTo (count units _HostageGroup)) then {
+if({!Alive _X || !([_X] call ace_common_fnc_isAwake)} count units _HostageGroup isEqualTo (count units _HostageGroup) && _Hostage) then {
 	[_Caller,format["Live Run Failed. Time: %1 seconds",_Time]] remoteExec ["SideChat",0];
 } else {
 	[_Caller,format["Live Run Complete. Time: %1 seconds",_Time]] remoteExec ["SideChat",0];

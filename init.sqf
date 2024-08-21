@@ -5,6 +5,8 @@ MISSION_ROOT = call {
     toString _arr
 };
 
+execVM "FAC_Teleport.sqf";
+
 /* Define Player Side for Scripts */
 if(HasInterface && isNil "OKS_FRIENDLY_SIDE") then {
 	OKS_FRIENDLY_SIDE = [player] call GW_Common_Fnc_getSide;
