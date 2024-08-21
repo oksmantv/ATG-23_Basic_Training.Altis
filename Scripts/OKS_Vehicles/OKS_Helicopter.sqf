@@ -12,6 +12,8 @@ Params
 	["_shouldDisableNVG", false, [true]]
 ];
 
+_Vehicle setFuelConsumptionCoef 3;
+
 OKS_isWhiteList = {
 	Params ["_Vehicle"];
 	Private "_return";
@@ -109,6 +111,7 @@ OKS_Helicopter_Code = {
 };
 
 sleep 5;
+
 Private "_Array";
 if(isNull _Vehicle) then {
 	{ if(_X isKindOf "Helicopter") then {[_X,_ShouldDisableThermal,_shouldDisableNVG] spawn OKS_Helicopter_Code; if(_Debug_Variable) then { systemChat format["Helicopter Script added to %1",_X] }}} foreach vehicles;
