@@ -71,7 +71,7 @@ params ["_Terminal", "_Qualifier", "_SpawnPos","_Barrier"];
 
 	//
 	{
-		[_Unit,false] remoteExec ["hideObjectGlobal",2];
+		[_X,false] remoteExec ["hideObjectGlobal",2];
 		_X spawn {	
 			_Casualty = _this;		 
 			waitUntil{
