@@ -15,7 +15,8 @@ OKS_Marksman_Qualification_WeaponSelect = compile preprocessFileLineNumbers "Tra
 //Dense_CQB_Garrison = compile preprocessFileLineNumbers "Training\Dense_CQB_Garrison.sqf";
 //OKS_SpawnEnemyVehicle = compile preprocessFileLineNumbers "Scripts\OKS_SpawnEnemyVehicle.sqf";
 MGSpawner = compile preprocessFileLineNumbers "Training\MGSpawner.sqf";
-
+LauncherGear = compile preprocessFileLineNumbers "Training\LauncherGear.sqf";
+AA_Spawner = compile preprocessFileLineNumbers "Training\AA_Spawner.sqf";
 AT_Spawner = compile preprocessFileLineNumbers "Training\AT_Spawner.sqf";
 AI_Death = compile preprocessFileLineNumbers "Training\AI_Death.sqf";
 CQB_Garrison = compile preprocessFileLineNumbers "Training\CQB_Garrison.sqf";
@@ -32,9 +33,15 @@ MedicalQualificationPatients = compile preprocessFileLineNumbers "Medical\Medica
 
 
 // AT Range
-OKS_AT_Spawn_Active = false;
-[AT_Range_PC,"Activate Range","OKS_AT_Spawn_Active",false,true,true] execVM "Scripts\NEKY_AddAction.sqf";
-[AT_Range_PC,"Deactivate Range","OKS_AT_Spawn_Active",false,true,false] execVM "Scripts\NEKY_AddAction.sqf";
+OKS_AT_Spawn_Active = false; sleep 1;
+[AT_Range_PC,"<t color='#2acb1f'>Activate Range</t>","OKS_AT_Spawn_Active",false,false,true,"OKS_AT_Spawn_Active == false"] execVM "Scripts\NEKY_AddAction.sqf"; sleep 1;
+[AT_Range_PC,"<t color='#2acb1f'>Deactivate Range</t>","OKS_AT_Spawn_Active",false,false,false,"OKS_AT_Spawn_Active == true"] execVM "Scripts\NEKY_AddAction.sqf"; sleep 1;
+
+// AA Range
+OKS_AA_Spawn_Active = false; sleep 1;
+[AT_Range_PC,"<t color='#1A98FD'>Activate Range (Air)</t>","OKS_AA_Spawn_Active",false,false,true,"OKS_AA_Spawn_Active == false"] execVM "Scripts\NEKY_AddAction.sqf"; sleep 1; 
+[AT_Range_PC,"<t color='#1A98FD'>Deactivate Range (Air)</t>","OKS_AA_Spawn_Active",false,false,false,"OKS_AA_Spawn_Active == true"] execVM "Scripts\NEKY_AddAction.sqf";
+
 
 // // Ambush
 // AmbushAction_0 setVariable ["AMBUSH_TEXT","Ambush 0",true];
@@ -203,7 +210,12 @@ object_1 addAction ["<t color='#eb4034'>Initiate Targets</t>",{
 	"",
 	""];
 
+sleep 20;
+
 if(isServer) then {
 	[ATSpawn_1,ATWP_1,ATEnd_1,east,[6,60]] spawn AT_Spawner;
 	[ATSpawn_2,ATWP_2,ATEnd_2,east,[6,60]] spawn AT_Spawner;
+	[AirStart_1,AirEnd_1,east] spawn AA_Spawner;
+	[AirStart_2,AirEnd_2,east] spawn AA_Spawner;	
+	[AirStart_3,AirEnd_3,east] spawn AA_Spawner;
 };

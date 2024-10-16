@@ -32,6 +32,7 @@ params ["_Terminal","_SpawnPos","_Severe"];
         };
     };
     _Unit setPosATL (getPosATL _SpawnPos);
+    [_Unit,false] remoteExec ["hideObjectGlobal",2];
     waitUntil{PrimaryWeapon _Unit != ""};
     removeAllWeapons _Unit;
     

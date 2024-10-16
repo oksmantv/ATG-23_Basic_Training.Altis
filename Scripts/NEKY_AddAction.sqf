@@ -23,7 +23,7 @@
 //	Version 0.9
 //	Made by NeKo-ArroW
 
-Params ["_Object","_Name","_Variable","_Delete","_RemoveAction"];
+Params ["_Object","_Name","_Variable","_Delete","_RemoveAction",["_VariableValue",true,[true]],["_Condition","true",[""]]];
 
 // Exit if object is missing/dead
 if !(Alive _Object) exitWith {};
@@ -32,9 +32,9 @@ if !(Alive _Object) exitWith {};
 _Object addAction [_Name,
 {
 	Params ["_Object","_Player","_ID","_Args"];
-	_Args Params ["_Variable","_Delete","_RemoveAction"];
+	_Args Params ["_Variable","_Delete","_RemoveAction","_VariableValue"];
 	if (_RemoveAction) then { _Object removeAction _ID };
 	if (_Delete) then { DeleteVehicle _Object };
 
-	Call Compile Format ["%1 = True; PublicVariable '%1'",_Variable];
-},[_Variable,_Delete,_RemoveAction],10,True,True];
+	Call Compile Format ["%1 = %2; PublicVariable '%1'",_Variable,_VariableValue];
+},[_Variable,_Delete,_RemoveAction,_VariableValue],5,True,True,"",_Condition];

@@ -9,7 +9,7 @@ _VehicleArray Params ["_SpeedMeterPerSecond","_DispersionInMeters"];
 
 Private ["_crewClass","_Units","_Leader","_Vehicles","_DismountCode","_Classname"];
 Private _ConvoyArray = [];
-private _Debug_Variable = true;
+private _Debug_Variable = false;
 
 	Switch (_Side) do
 	{
@@ -55,7 +55,7 @@ private _Debug_Variable = true;
 			];
 			_Vehicles = [
 				"UK3CB_TKA_O_ZsuTank", "UK3CB_TKA_O_BMP1", "UK3CB_TKA_O_BMP2", "UK3CB_TKA_O_BTR70", "UK3CB_TKA_O_BTR80a", "UK3CB_TKA_O_BTR80", "UK3CB_TKA_O_M113_M2", 
-				"UK3CB_TKA_O_MTLB_PKT", "UK3CB_TKA_O_BRDM2", "UK3CB_TKA_O_Tigr_STS", "UK3CB_TKA_O_GAZ_Vodnik_Cannon", "UK3CB_TKA_O_GAZ_Vodnik_KVPT", "UK3CB_TKA_O_T34", 
+				"UK3CB_TKA_O_MTLB_PKT", "UK3CB_TKA_O_BRDM2", "UK3CB_TKA_O_Tigr_STS", "UK3CB_TKA_O_GAZ_Vodnik_Cannon", "UK3CB_TKA_O_GAZ_Vodnik_KVPT", 
 				"UK3CB_TKA_O_T55", "UK3CB_TKA_O_T72A", "UK3CB_TKA_O_T72B", "UK3CB_TKA_O_T72BM"
 			];			
 		};
