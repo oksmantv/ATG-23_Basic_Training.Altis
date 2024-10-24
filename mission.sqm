@@ -24,10 +24,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={14136.06,64.688309,16303.874};
-		dir[]={0.62504739,-0.53499359,-0.56842941};
-		up[]={0.39580199,0.84485221,-0.35995051};
-		aside[]={-0.67281103,-1.15484e-07,-0.73982441};
+		pos[]={14170.042,64.688309,16294.065};
+		dir[]={0.87348318,-0.43272206,-0.22311895};
+		up[]={0.4192614,0.90152693,-0.10709514};
+		aside[]={-0.24749029,-7.9162419e-08,-0.96889281};
 	};
 };
 binarizationWanted=0;
@@ -47241,7 +47241,7 @@ class Mission
 													};
 													id=11673;
 													type="Target_PopUp4_Moving_90deg_F";
-													atlOffset=0.76823258;
+													atlOffset=0.76823282;
 												};
 												class Item6
 												{
@@ -47258,7 +47258,7 @@ class Mission
 													};
 													id=11677;
 													type="Target_PopUp4_Moving_90deg_F";
-													atlOffset=0.76823258;
+													atlOffset=0.76823282;
 												};
 												class Item7
 												{
@@ -52822,7 +52822,7 @@ class Mission
 											};
 											id=12395;
 											type="Land_Boat_04_wreck_F";
-											atlOffset=-1.2018549;
+											atlOffset=-1.2018548;
 										};
 										class Item6
 										{
@@ -53772,7 +53772,7 @@ class Mission
 													};
 													id=12444;
 													type="Target_PopUp4_Moving_90deg_F";
-													atlOffset=0.77117848;
+													atlOffset=0.77117872;
 												};
 												class Item1
 												{
@@ -53857,7 +53857,7 @@ class Mission
 													};
 													id=12449;
 													type="Target_PopUp4_Moving_90deg_F";
-													atlOffset=0.71187997;
+													atlOffset=0.71188021;
 												};
 												class Item6
 												{
@@ -53874,7 +53874,7 @@ class Mission
 													};
 													id=12450;
 													type="Target_PopUp4_Moving_90deg_F";
-													atlOffset=0.71187997;
+													atlOffset=0.71188021;
 												};
 												class Item7
 												{
@@ -60439,7 +60439,7 @@ class Mission
 													};
 													id=13956;
 													type="Target_PopUp4_Moving_90deg_F";
-													atlOffset=0.77045655;
+													atlOffset=0.77045679;
 												};
 												class Item6
 												{
@@ -60456,7 +60456,7 @@ class Mission
 													};
 													id=13957;
 													type="Target_PopUp4_Moving_90deg_F";
-													atlOffset=0.77045655;
+													atlOffset=0.77045679;
 												};
 												class Item7
 												{
@@ -67021,7 +67021,7 @@ class Mission
 													};
 													id=13573;
 													type="Target_PopUp4_Moving_90deg_F";
-													atlOffset=0.76664567;
+													atlOffset=0.76664591;
 												};
 												class Item6
 												{
@@ -67038,7 +67038,7 @@ class Mission
 													};
 													id=13574;
 													type="Target_PopUp4_Moving_90deg_F";
-													atlOffset=0.76664567;
+													atlOffset=0.76664591;
 												};
 												class Item7
 												{
@@ -67059,7 +67059,7 @@ class Mission
 												};
 											};
 											id=13567;
-											atlOffset=0.83662558;
+											atlOffset=0.83662605;
 										};
 										class Item8
 										{
@@ -73570,7 +73570,7 @@ class Mission
 													};
 													id=14339;
 													type="Target_PopUp4_Moving_90deg_F";
-													atlOffset=0.77498651;
+													atlOffset=0.77498674;
 												};
 												class Item6
 												{
@@ -73587,7 +73587,7 @@ class Mission
 													};
 													id=14340;
 													type="Target_PopUp4_Moving_90deg_F";
-													atlOffset=0.77498651;
+													atlOffset=0.77498674;
 												};
 												class Item7
 												{
@@ -93804,7 +93804,7 @@ class Mission
 				{
 					dataType="Trigger";
 					position[]={14274.424,20.13397,16205.808};
-					angle=1.9820883;
+					angle=1.9820882;
 					class Attributes
 					{
 						text="HideTrigger";
