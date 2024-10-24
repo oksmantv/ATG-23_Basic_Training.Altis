@@ -101,8 +101,8 @@ OKS_CourseReset = {
 
 // CQB Exercise
 // [Dense_1] execVM "Training\Dense_CQB_Action.sqf";
-execVM "Training\DryRun_Action.sqf";
-execVM "Training\CQB_Actions.sqf";
+//execVM "Training\DryRun_Action.sqf";
+//execVM "Training\CQB_Actions.sqf";
 
 object_1 addAction ["<t color='#eb4034'>Initiate Targets</t>",{
 		 [_this select 0,Target_1,[

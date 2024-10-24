@@ -20,7 +20,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=23211;
+		nextID=23491;
 	};
 	class Camera
 	{
@@ -591,7 +591,7 @@ randomSeed=15706391;
 class ScenarioData
 {
 	author="Oksman, Blu";
-	overviewText="Framework Version 2.3";
+	overviewText="Framework Version 2.4";
 	overViewPicture="loadImage.jpg";
 	overViewPictureLocked="loadImage.jpg";
 	loadScreen="loadImage.jpg";
@@ -16439,8 +16439,8 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Basic Training 7.8";
-		overviewText="Framework Version 2.3";
+		briefingName="Basic Training 7.9";
+		overviewText="Framework Version 2.4";
 		resistanceWest=0;
 		resistanceEast=1;
 		timeOfChanges=1800.0002;
@@ -19365,7 +19365,7 @@ class Mission
 						};
 					};
 					id=5346;
-					atlOffset=-1.6590619;
+					atlOffset=-1.7369366;
 				};
 				class Item3
 				{
@@ -93804,7 +93804,7 @@ class Mission
 				{
 					dataType="Trigger";
 					position[]={14274.424,20.13397,16205.808};
-					angle=1.9820887;
+					angle=1.9820883;
 					class Attributes
 					{
 						text="HideTrigger";
@@ -93851,6 +93851,7 @@ class Mission
 			};
 			id=17057;
 			type="FlexibleTank_01_forest_F";
+			atlOffset=3.8146973e-06;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -93924,6 +93925,7 @@ class Mission
 			};
 			id=17059;
 			type="VirtualReammoBox_small_F";
+			atlOffset=1.1444092e-05;
 			class CustomAttributes
 			{
 				class Attribute0
