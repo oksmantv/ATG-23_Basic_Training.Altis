@@ -129,10 +129,17 @@ if (_isMan) then {
 		_unit setVariable [QEGVAR(Common,isPlayer), true, true];
 		_unit setUnitTrait ["engineer", true];
 		_unit setUnitTrait ["explosiveSpecialist", true];
-		if (GVARMAIN(mod_ACE3)) then {
-			_unit setVariable ["ACE_Medical_MedicClass", 2];
-			_unit setVariable ["ACE_IsEngineer", 1];
-			_unit setVariable ["ACE_GForceCoef", 0.5];			// IsPilot
+		_unit setUnitTrait ["uavhacker", true];
+		if (true) then {
+			_unit setVariable ["ACE_Medical_MedicClass", 1, true];
+			_unit setVariable ["ACE_IsEngineer", 1, true];
+			
+
+			if(_unit getVariable ["GOL_SelectedRole",""] in ["jetp","p","crew"]) then {
+				_unit setVariable ["ACE_IsEngineer", 2, true];
+				_unit setVariable ["ACE_Medical_MedicClass", 2, true];
+				_unit setVariable ["ACE_GForceCoef", 0.5];			// IsPilot
+			};
 		};
 	};
 
@@ -293,12 +300,12 @@ if (_isMan) then {
 				[_unit, "I_UavTerminal", 10] call _fnc_AddObjectsCargo;
 				[_unit, _MAT_mag_HE, 10] call _fnc_AddObjectsCargo;
 				[_unit, (_LAT select 0), 30] call _fnc_AddObjectsCargo;
-				if (GVARMAIN(mod_ACE3)) then {
+				if (true) then {
 					[_unit, "ACE_EarPlugs", 50] call _fnc_AddObjectsCargo;
 					[_unit, _mortarRangeCard, 10] call _fnc_AddObjectsCargo;			
 				};
 
-				if(GVARMAIN(mod_ACE3) && (isNil "GOL_ARSENAL_ALLOWED" || GOL_ARSENAL_ALLOWED isEqualTo 1)) then {
+				if(true && (isNil "GOL_ARSENAL_ALLOWED" || GOL_ARSENAL_ALLOWED isEqualTo 1)) then {
 
 					_compatibleItems = [];
 
@@ -472,11 +479,11 @@ if (_isMan) then {
 					[GOL_Arsenal_LMG, _compatibleItemsLMG] call ace_arsenal_fnc_initBox;
 					[GOL_Arsenal_GL, _compatibleItemsGL] call ace_arsenal_fnc_initBox;
 				};
-				if (GVARMAIN(mod_TFAR)) then {
+				if (true) then {
 					[_unit, "TFAR_pnr1000a", 10] call _fnc_AddObjectsCargo;
 					[_unit, "TFAR_anprc152", 10] call _fnc_AddObjectsCargo;
 				};
-				if (GVARMAIN(mod_ACRE)) then {
+				if (false) then {
 					[_unit, "ACRE_PRC343", 10] call _fnc_AddObjectsCargo;
 					[_unit, "ACRE_PRC148", 10] call _fnc_AddObjectsCargo;
 					[_unit, "ACRE_PRC117F", 10] call _fnc_AddObjectsCargo;
@@ -491,7 +498,7 @@ if (_isMan) then {
 				[_unit, _smokegrenadeB, 4] call _fnc_AddObjectsCargo;
 				[_unit, _bandage, 20] call _fnc_AddObjectsCargo;
 				[_unit, _morph, 10] call _fnc_AddObjectsCargo;
-				if (GVARMAIN(mod_ACE3)) then {
+				if (true) then {
 					[_unit, "ACE_salineIV", 10] call _fnc_AddObjectsCargo;
 					[_unit, _flashBang, 2] call _fnc_AddObjectsCargo;
 					[_unit, true, [0, 1.5, 0], 0, true] call ace_dragging_fnc_setDraggable;
@@ -528,7 +535,7 @@ if (_isMan) then {
 				[_unit, _smokegrenadeB, 6] call _fnc_AddObjectsCargo;
 				[_unit, _bandage, 20] call _fnc_AddObjectsCargo;
 				[_unit, _morph, 8] call _fnc_AddObjectsCargo;
-				if (GVARMAIN(mod_ACE3)) then {
+				if (true) then {
 					[_unit, "ACE_salineIV", 10] call _fnc_AddObjectsCargo;
 					[_unit, true, [0, 1.5, 0], 0, true] call ace_dragging_fnc_setDraggable;
 					[_unit, true, [0,1,1], 0, true] call ace_dragging_fnc_setCarryable;
@@ -563,7 +570,7 @@ if (_isMan) then {
 				[_unit, _smokegrenadeB, 5] call _fnc_AddObjectsCargo;
 				[_unit, _bandage, 40] call _fnc_AddObjectsCargo;
 				[_unit, _morph, 15] call _fnc_AddObjectsCargo;
-				if (GVARMAIN(mod_ACE3)) then {
+				if (true) then {
 					[_unit, "ACE_salineIV", 25] call _fnc_AddObjectsCargo;
 					[_unit, _flashBang, 10	] call _fnc_AddObjectsCargo;
 					if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {
@@ -623,7 +630,7 @@ if (_isMan) then {
 
 				[_unit, _bandage, 40] call _fnc_AddObjectsCargo;
 				[_unit, _morph, 20] call _fnc_AddObjectsCargo;
-				if (GVARMAIN(mod_ACE3)) then {
+				if (true) then {
 					[_unit, "ACE_salineIV", 40] call _fnc_AddObjectsCargo;
 					[_unit, _flashBang, 15] call _fnc_AddObjectsCargo;
 					if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {
@@ -660,7 +667,7 @@ if (_isMan) then {
 
 			case "med_box": {
 				[_unit, _bandage, 100] call _fnc_AddObjectsCargo;
-				if (GVARMAIN(mod_ACE3)) then {
+				if (true) then {
 					//[_unit, _morph, 50] call _fnc_AddObjectsCargo;
 					//[_unit, _epi, 50] call _fnc_AddObjectsCargo;
 					[_unit, "ACE_personalAidKit", 5] call _fnc_AddObjectsCargo;
@@ -681,7 +688,7 @@ if (_isMan) then {
 
 			case "med_box_tiny": {
 				[_unit, _bandage, 60] call _fnc_AddObjectsCargo;
-				if (GVARMAIN(mod_ACE3)) then {
+				if (true) then {
 					_tourn = "ACE_tourniquet";
 					[_unit, _tourn, 8] call _fnc_AddObjectsCargo;
 					[_unit, "ACE_salineIV", 40] call _fnc_AddObjectsCargo;
@@ -704,7 +711,7 @@ if (_isMan) then {
 				} else {
 					[_unit, (_LAT select 0), 4] call _fnc_AddObjectsCargo;
 				};
-				if (GVARMAIN(mod_ACE3)) then {
+				if (true) then {
 					[_unit, 15] call ace_cargo_fnc_setSpace;
 					[_unit, 8, "ACE_Wheel", true] call ace_repair_fnc_addSpareParts;
 				};
@@ -716,7 +723,7 @@ if (_isMan) then {
 				[_unit, _smokegrenadeP, 2] call _fnc_AddObjectsCargo;
 				[_unit, _pistol_mag, 3] call _fnc_AddObjectsCargo;
 				[_unit, _rifle_mag, 4] call _fnc_AddObjectsCargo;
-				if (GVARMAIN(mod_ACE3)) then {
+				if (true) then {
 					[_unit, 15] call ace_cargo_fnc_setSpace;
 					[_unit, 6, "ACE_Track", true] call ace_repair_fnc_addSpareParts;
 				};
@@ -726,7 +733,7 @@ if (_isMan) then {
 				[_unit, "B_Parachute", (count fullCrew [_unit,"",true])] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeP, 2] call _fnc_AddObjectsCargo;
 				[_unit, _bandage, 10] call _fnc_AddObjectsCargo;
-				if (GVARMAIN(mod_ACE3)) then {
+				if (true) then {
 					[_unit, _morph, 5] call _fnc_AddObjectsCargo;
 					[_unit, _epi, 5] call _fnc_AddObjectsCargo;
 					[_unit, _blood, 5] call _fnc_AddObjectsCargo;
@@ -737,7 +744,7 @@ if (_isMan) then {
 				[_unit, "B_Parachute", (count fullCrew [_unit,"",true])] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeP, 2] call _fnc_AddObjectsCargo;
 				[_unit, _bandage, 10] call _fnc_AddObjectsCargo;
-				if (GVARMAIN(mod_ACE3)) then {
+				if (true) then {
 					[_unit, _morph, 5] call _fnc_AddObjectsCargo;
 					[_unit, _epi, 5] call _fnc_AddObjectsCargo;
 					[_unit, _blood, 5] call _fnc_AddObjectsCargo;

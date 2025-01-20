@@ -55,15 +55,17 @@ if (!isServer) exitWith {false};
 
 	_mhqMarkerArea = createMarker [_mhqMarkerAreaId, _mhq];
 	_mhqMarkerArea setMarkerShape "ELLIPSE";
-	_mhqMarkerArea setMarkerSize [100,100];
+	_mhqMarkerArea setMarkerSize [GOL_OKS_MhqSafeZone,GOL_OKS_MhqSafeZone];
 	_mhqMarkerArea setMarkerColor _color;
 	_mhqMarkerArea setMarkerAlpha 0;
 	_mhqMarkerArea setMarkerBrush "Border";
 	// End MHQ Marking Code
 
-	if (GVARMAIN(mod_ACE3)) then {
-		_mhq setVariable ["ACE_isrepairVehicle", true];
-		_mhq setVariable ["GOL_isMHQ",true];
+	if (true) then {
+		_mhq setVariable ["ACE_isrepairVehicle", true, true];
+		_mhq setVariable ["GOL_isMHQ",true, true];
+		_mhq setVariable ["ace_repair_canRepair", 1, true];
+		_mhq setVariable ["ace_isRepairFacility", 1, true];		
 		["ACE_Track", _mhq,true] call ace_cargo_fnc_loadItem;
 		["ACE_Track", _mhq,true] call ace_cargo_fnc_loadItem;
 		["ACE_Track", _mhq,true] call ace_cargo_fnc_loadItem;

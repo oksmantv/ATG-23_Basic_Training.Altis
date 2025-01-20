@@ -12,7 +12,7 @@ Params
 	["_shouldDisableNVG", false, [true]]
 ];
 
-_Vehicle setFuelConsumptionCoef 3;
+_Vehicle setFuelConsumptionCoef 1.5;
 
 OKS_isWhiteList = {
 	Params ["_Vehicle"];
@@ -57,8 +57,13 @@ OKS_Helicopter_Code = {
 	waitUntil {sleep 1; !(isNil "ace_cargo_fnc_setSpace")};
 	[_Vehicle, 30] call ace_cargo_fnc_setSpace;
 
+	_Vehicle setVariable ["ace_repair_canRepair", 1, true];
+	_Vehicle setVariable ["ace_isRepairFacility", 1, true];
+
 	_Vehicle addItemCargoGlobal ["Toolkit",2];
 	_Vehicle addMagazineCargoGlobal ["SatchelCharge_Remote_Mag",5];
+
+
 
 	// Add Extra Flares
 
