@@ -49,7 +49,7 @@ if (_unit isKindOf "CAManBase") then {
 
 	_unit setVariable ["acex_headless_blacklist", true, true]; // If Auto-Gear is being applied disable HC transfer until gear is applied
 
-	if !(typeOf _unit isEqualTo "ace_dragging_clone") then {
+		if !(typeOf _unit isEqualTo "ace_dragging_clone") then {
 		_role = (_unit getVariable [QGVAR(Loadout), ""]);	// Check if specific is role assigned
 
 		if (_role isEqualTo "") then {	// get role
