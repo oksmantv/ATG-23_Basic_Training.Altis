@@ -25,7 +25,6 @@ if(HasInterface && isNil "OKS_FRIENDLY_SIDE") then {
 Call Compile PreProcessFileLineNumbers "MissionSettings.sqf";
 Sleep 5;
 	[] execVM "Training\Init.sqf";
-	[] execVM "Medical\Init.sqf";
 
 	{
 		[_x] execVM "Scripts\BLU_HeliActions.sqf";
