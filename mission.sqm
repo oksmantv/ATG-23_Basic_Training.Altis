@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=1.5707964;
 	scaleGridStep=10;
 	autoGroupingDist=10;
-	toggles=1537;
+	toggles=513;
 	mods[]=
 	{
 		"3denEnhanced"
@@ -20,7 +20,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=23631;
+		nextID=23911;
 	};
 	class Camera
 	{
@@ -16789,7 +16789,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Basic Training 7.9";
+		briefingName="Basic Training 8.0";
 		overviewText="Framework Version 2.4";
 		resistanceWest=0;
 		resistanceEast=1;
@@ -94154,7 +94154,7 @@ class Mission
 				{
 					dataType="Trigger";
 					position[]={14274.424,20.13397,16205.808};
-					angle=1.9820881;
+					angle=1.9820879;
 					class Attributes
 					{
 						text="HideTrigger";
